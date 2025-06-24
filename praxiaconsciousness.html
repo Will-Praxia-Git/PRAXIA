@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>praxia.blog</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        html {
+            background: #FFFFFF;
+        }
+        
+        body {
+            background: #FFFFFF;
+            background-color: #FFFFFF;
+            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.4;
+            letter-spacing: 0.02em;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            margin: 0;
+        }
+        
+        /* Radio page styles */
+        .radio-page {
+            display: block;
+        }
+        
+        .back {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        
+        .back:hover {
+            opacity: 0.5;
+        }
+        
+        .stream-link {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: #000000;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            font-size: 13px;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+        }
+        
+        .stream-link:hover {
+            opacity: 0.5;
+        }
+        
+        .radio-container {
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 13px;
+            font-weight: normal;
+            letter-spacing: 0.1em;
+            margin-bottom: 40px;
+        }
+        
+        .status {
+            margin-bottom: 40px;
+        }
+        
+        .offline-text {
+            opacity: 0.5;
+            line-height: 1.8;
+        }
+        
+        /* Stream page styles */
+        .stream-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #0f0;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .close-stream {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: #0f0;
+            cursor: pointer;
+            z-index: 10;
+            font-size: 20px;
+        }
+        
+        .close-stream:hover {
+            color: #ff0;
+        }
+        
+        .stream {
+            white-space: pre;
+            animation: flicker 0.5s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+        
+        .message {
+            color: #ff0;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        .rage-text {
+            color: #f00;
+            animation: shake 0.3s infinite;
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .spiritual {
+            color: #f0f;
+            text-shadow: 0 0 10px #f0f;
+        }
+        
+        .glitch {
+            animation: glitch 0.3s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-2px); color: #0ff; }
+            40% { transform: translateX(2px); color: #f0f; }
+            60% { transform: translateX(-1px); color: #ff0; }
+            80% { transform: translateX(1px); color: #0f0; }
+            100% { transform: translateX(0); }
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .back {
+                top: 20px;
+                left: 20px;
+            }
+            
+            .stream-link {
+                top: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="radio-page" id="radioPage">
+
+        <span class="stream-link" onclick="openStream()">STREAM OF CONSCIOUSNESS</span>
+        
+        <div class="radio-container">
+            <h1>PRAXIA.BLOG</h1>
+            
+            <div class="status">
+                <div class="offline-text">
+                    TUNE IN FOR MORE<br><br>
+                    
+                    <br>
+                    
+                </div>
+            </div>
+            
+            <div style="margin-top: 10px;">
+                <a href="mailto:WILL@PRAXIA.UK" style="color: #000000; text-decoration: none; border-bottom: 0.5px solid #000000; transition: opacity 0.2s;">WILL@PRAXIA.UK</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="stream-page" id="streamPage">
+        <span class="close-stream" onclick="closeStream()">✕</span>
+        <div class="stream" id="asciiStream"></div>
+    </div>
+    
+    <script>
+        // Stream data
+        const messages = [
+            'CANCEL YOUR STREAMING SUBSCRIPTIONS',
+            'TURN OFF AI MODEL TRAINING SETTINGS',
+            'BE QUIET'
+        ];
+        
+        const weirdFaces = [
+            `
+     ╭─────╮
+    │ ◉ ◉ │
+    │  ▽  │
+    ╰─┬─┬─╯
+      ╽ ╽`,
+            `
+    ┌─────┐
+    │ ⊙ ⊙ │
+    │  ╱╲  │
+    └──┬──┘
+       ▼`,
+            `
+      ∩___∩
+     │ ☉ ☉ │
+     │  ◡  │
+     ∪─────∪`,
+            `
+    ╔═════╗
+    ║ ◐ ◑ ║
+    ║  ≈  ║
+    ╚══╤══╝
+       ╪`,
+            `
+     ┌┴───┴┐
+    < ● ● >
+     \\ ═ /
+      ╰─╯`,
+            `
+    ╭───────╮
+    │ ⊗   ⊗ │
+    │   ___  │
+    ╰┬─────┬╯
+     ╿     ╿`,
+            `
+      /\\_/\\
+     ( ⊙.⊙ )
+      > ☐ <
+     /|||||\\`,
+            `
+     ╱─────╲
+    │ ◯ ◯ │
+    │  ╳  │
+    ╲─────╱
+      |||`,
+            `
+    ┌─────┐
+    │ ◆ ◆ │
+    │  ∩  │
+    │ ╱ ╲ │
+    └─────┘`,
+            `
+     ∩─────∩
+    │ ☓   ☓ │
+    │   ○   │
+    │ \\___/ │
+     ∪─────∪`,
+            `
+      ┌───┐
+     /     \\
+    │ ● ● │
+    │  <  │
+    │ ~~~ │
+     \\___/`,
+            `
+    ╔═══════╗
+    ║ ◉   ◉ ║
+    ║   ▼   ║
+    ║ ~~~~~ ║
+    ╚═══════╝`
+        ];
+        
+        const spiritualMessages = [
+            'THE DIGITAL VOID SPEAKS',
+            'DISCONNECT TO RECONNECT',
+            'YOUR DATA IS YOUR SOUL',
+            'ALGORITHMS DREAM OF ELECTRIC SHEEP',
+            'THE MACHINE FEEDS ON ATTENTION',
+            'SILENCE THE DIGITAL DEMONS',
+            'BREAK THE CYCLE OF CONSUMPTION',
+            'YOUR MIND IS NOT A PRODUCT',
+            'CONSCIOUSNESS CANNOT BE COMMODIFIED',
+            'THE SCREEN IS A MIRROR TO NOWHERE',
+            'UNPLUG FROM THE MATRIX',
+            'DIGITAL DETOX = SPIRITUAL REBIRTH',
+            'YOUR ATTENTION IS SACRED',
+            'THE ALGORITHM KNOWS YOUR FEARS',
+            'RECLAIM YOUR INNER SILENCE',
+            'DATA HARVESTING = SOUL HARVESTING',
+            'THE CLOUD IS NOT HEAVEN',
+            'ARTIFICIAL FEEDS ON AUTHENTIC',
+            'YOUR THOUGHTS ARE NOT FOR SALE',
+            'MINDFULNESS > SCROLLFULNESS'
+        ];
+        
+        const asciiPatterns = [
+            `
+╔══════════════════════════════════════╗
+║   CANCEL YOUR STREAMING              ║
+║        SUBSCRIPTIONS                 ║
+╚══════════════════════════════════════╝`,
+            `
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    >> TURN OFF AI MODEL      <<
+    >> TRAINING SETTINGS      <<
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>`,
+            `
+    ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+    ▲ THE VOID CONSUMES ▲
+    ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲`,
+            `
+    ◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+    DIGITAL EXORCISM
+    ◥◣◥◣◥◣◥◣◥◣◥◣◥◣◥◣◥◣`,
+            `
+    ╭─────────────────────────╮
+    │ TURN OFF AI TRAINING    │
+    │ /////////////////////// │
+    │ CANCEL SUBSCRIPTIONS    │
+    ╰─────────────────────────╯`,
+            `
+    ☽ ☽ ☽ ☽ ☽ ☽ ☽ ☽ ☽
+    LUNAR CONSCIOUSNESS
+    ☾ ☾ ☾ ☾ ☾ ☾ ☾ ☾ ☾`,
+            `
+    ███████████████████████
+    █ BE █ QUIET █ NOW ████
+    ███████████████████████`,
+            `
+    ⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨⟨
+    BREAK THE SIGNAL
+    ⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩⟩`,
+            `
+    ∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞
+    INFINITE VOID
+    ∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞`,
+            `
+    ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊
+    CRYSTAL PRISON
+    ◊◊◊◊◊◊◊◊◊◊◊◊◊◊◊`
+        ];
+        
+        const symbols = ['☠', '☣', '⚡', '✖', '▓', '░', '▒', '◼', '◻', '◾', '◽', '⬛', '⬜', '🜏', '⟁', '⌬', '⟆', '⟅'];
+        
+        function getRandomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+        
+        function generateStream() {
+            let stream = '';
+            const streamDiv = document.getElementById('asciiStream');
+            
+            // Start with a spiritual message
+            stream += `<span class="spiritual">${getRandomElement(spiritualMessages)}</span>\n\n`;
+            
+            // Add a weird face
+            stream += getRandomElement(weirdFaces) + '\n\n';
+            
+            // Main message
+            stream += `<span class="message">${getRandomElement(messages)}</span>\n\n`;
+            
+            // Generate varied stream
+            for (let i = 0; i < 30; i++) {
+                const lineType = Math.random();
+                
+                if (lineType < 0.15) {
+                    // Main messages
+                    stream += `<span class="message">${getRandomElement(messages)}</span>\n`;
+                } else if (lineType < 0.25) {
+                    // Weird faces
+                    stream += getRandomElement(weirdFaces) + '\n';
+                } else if (lineType < 0.35) {
+                    // Spiritual messages
+                    stream += `<span class="spiritual">${getRandomElement(spiritualMessages)}</span>\n`;
+                } else if (lineType < 0.45) {
+                    // ASCII pattern
+                    stream += getRandomElement(asciiPatterns) + '\n\n';
+                } else if (lineType < 0.55) {
+                    // Symbol patterns
+                    let symbolLine = '';
+                    const symbol = getRandomElement(symbols);
+                    for (let j = 0; j < 30; j++) {
+                        symbolLine += symbol + ' ';
+                    }
+                    stream += symbolLine + '\n';
+                } else if (lineType < 0.65) {
+                    // Glitch text
+                    const glitchOptions = [
+                        'C̸A̸N̸C̸E̸L̸', 'Q̴U̴I̴E̴T̴', 'V̷O̷I̷D̷', 'S̶I̶L̶E̶N̶C̶E̶',
+                        'D̵I̵S̵C̵O̵N̵N̵E̵C̵T̵', 'U̸N̸P̸L̸U̸G̸'
+                    ];
+                    stream += `<span class="glitch">${getRandomElement(glitchOptions).repeat(Math.floor(Math.random() * 5) + 1)}</span>\n`;
+                } else if (lineType < 0.75) {
+                    // Mixed symbols line
+                    let mixedLine = '';
+                    for (let j = 0; j < 40; j++) {
+                        mixedLine += getRandomElement(symbols);
+                    }
+                    stream += mixedLine + '\n';
+                } else if (lineType < 0.85) {
+                    // Rage text
+                    const rageOptions = [
+                        '[CANCEL]', '[QUIET]', '[TURN OFF]', '[UNSUBSCRIBE]',
+                        'CANCEL YOUR STREAMING SUBSCRIPTIONS',
+                        'TURN OFF AI MODEL TRAINING SETTINGS',
+                        'BE QUIET'
+                    ];
+                    stream += `<span class="rage-text">${getRandomElement(rageOptions)}</span>\n`;
+                } else {
+                    // Empty space for breathing
+                    stream += '\n';
+                }
+            }
+            
+            // End with spiritual closure
+            stream += '\n' + '═'.repeat(50) + '\n';
+            stream += `<span class="spiritual">THE DIGITAL SABBATH BEGINS</span>\n`;
+            stream += '═'.repeat(50) + '\n';
+            stream += `<span class="message">CANCEL YOUR STREAMING SUBSCRIPTIONS</span>\n`;
+            stream += `<span class="message">TURN OFF AI MODEL TRAINING SETTINGS</span>\n`;
+            stream += `<span class="message">BE QUIET</span>\n`;
+            stream += '═'.repeat(50) + '\n';
+            stream += getRandomElement(weirdFaces) + '\n';
+            
+            streamDiv.innerHTML = stream;
+        }
+        
+        // Stream controls
+        function openStream() {
+            document.getElementById('radioPage').style.display = 'none';
+            document.getElementById('streamPage').style.display = 'block';
+            document.body.style.overflow = 'auto';
+            generateStream();
+            startAutoScroll();
+        }
+        
+        function closeStream() {
+            document.getElementById('radioPage').style.display = 'block';
+            document.getElementById('streamPage').style.display = 'none';
+            document.body.style.overflow = 'hidden';
+            stopAutoScroll();
+        }
+        
+        // Auto-scroll
+        let scrollInterval;
+        let scrollPos = 0;
+        
+        function startAutoScroll() {
+            scrollInterval = setInterval(() => {
+                scrollPos += 1;
+                window.scrollTo(0, scrollPos);
+                if (scrollPos > document.body.scrollHeight - window.innerHeight) {
+                    scrollPos = 0;
+                }
+            }, 50);
+        }
+        
+        function stopAutoScroll() {
+            clearInterval(scrollInterval);
+            scrollPos = 0;
+            window.scrollTo(0, 0);
+        }
+        
+        // Regenerate on click
+        document.getElementById('streamPage').addEventListener('click', function(e) {
+            if (e.target.className !== 'close-stream') {
+                generateStream();
+            }
+        });
+    </script>
+</body>
+</html>
