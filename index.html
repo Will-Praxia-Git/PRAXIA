@@ -16,64 +16,131 @@
             user-select: none;
         }
         
-        html {
-            background: #FFFFFF;
-        }
-        
         body {
-            background: #FFFFFF;
-            background-color: #FFFFFF;
-            color: #000000;
             font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
             font-size: 13px;
             line-height: 1.4;
             letter-spacing: 0.02em;
             height: 100vh;
-            height: 100dvh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
             position: relative;
             margin: 0;
         }
         
-        /* Radio page styles */
-        .radio-page {
-            display: block;
+        /* Lava lamp background */
+        .lava-lamp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #2D1B69 0%, #0F0620 100%);
+            overflow: hidden;
         }
         
-        .back {
+        .blob {
             position: absolute;
-            top: 40px;
-            left: 40px;
-            color: #000000;
-            text-decoration: none;
-            transition: opacity 0.2s;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 20s infinite ease-in-out;
         }
         
-        .back:hover {
-            opacity: 0.5;
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.8) 0%, rgba(255, 0, 150, 0) 70%);
+            top: -200px;
+            left: -200px;
+            animation-duration: 25s;
         }
         
-        .stream-link {
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(150, 0, 255, 0.8) 0%, rgba(150, 0, 255, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+        
+        .blob3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 0, 100, 0.8) 0%, rgba(255, 0, 100, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+        
+        .blob4 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 0, 255, 0.8) 0%, rgba(200, 0, 255, 0) 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(100px, -100px) scale(1.1);
+            }
+            50% {
+                transform: translate(-100px, 100px) scale(0.9);
+            }
+            75% {
+                transform: translate(50px, -50px) scale(1.05);
+            }
+        }
+        
+        /* Main content */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .stream-button {
             position: absolute;
             top: 40px;
             right: 40px;
-            color: #000000;
-            text-decoration: none;
-            transition: opacity 0.2s;
+            background: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
             font-size: 13px;
             letter-spacing: 0.02em;
-            cursor: pointer;
+            transition: all 0.3s;
         }
         
-        .stream-link:hover {
-            opacity: 0.5;
+        .stream-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
         }
         
-        .radio-container {
+        .content-box {
             text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            color: #FFFFFF;
         }
         
         h1 {
@@ -83,17 +150,24 @@
             margin-bottom: 40px;
         }
         
-        .status {
+        .status-text {
+            opacity: 0.9;
             margin-bottom: 40px;
         }
         
-        .offline-text {
-            opacity: 0.5;
-            line-height: 1.8;
+        .email-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            border-bottom: 0.5px solid #FFFFFF;
+            transition: opacity 0.2s;
         }
         
-        /* Stream page styles */
-        .stream-page {
+        .email-link:hover {
+            opacity: 0.7;
+        }
+        
+        /* Stream overlay */
+        .stream-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -104,6 +178,8 @@
             color: #0f0;
             overflow-y: auto;
             padding: 20px;
+            z-index: 100;
+            font-family: monospace;
         }
         
         .close-stream {
@@ -112,8 +188,8 @@
             right: 20px;
             color: #0f0;
             cursor: pointer;
-            z-index: 10;
-            font-size: 20px;
+            font-size: 30px;
+            z-index: 101;
         }
         
         .close-stream:hover {
@@ -172,44 +248,46 @@
             100% { transform: translateX(0); }
         }
         
-        /* Mobile adjustments */
+        /* Mobile */
         @media (max-width: 600px) {
-            .back {
-                top: 20px;
-                left: 20px;
-            }
-            
-            .stream-link {
+            .stream-button {
                 top: 20px;
                 right: 20px;
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+            
+            .content-box {
+                margin: 0 20px;
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="radio-page" id="radioPage">
-
-        <span class="stream-link" onclick="openStream()">STREAM OF CONSCIOUSNESS</span>
+    <!-- Lava lamp background -->
+    <div class="lava-lamp">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="blob blob4"></div>
+    </div>
+    
+    <!-- Main content -->
+    <div class="main-content">
+        <button class="stream-button" onclick="openStream()">STREAM OF CONSCIOUSNESS</button>
         
-        <div class="radio-container">
+        <div class="content-box">
             <h1>PRAXIA</h1>
-            
-            <div class="status">
-                <div class="offline-text">
-                    Problem Provider<br><br>
-                    
-                    <br>
-                    
-                </div>
-            </div>
-            
-            <div style="margin-top: 10px;">
-                <a href="mailto:WILL@PRAXIA.UK" style="color: #000000; text-decoration: none; border-bottom: 0.5px solid #000000; transition: opacity 0.2s;">WILL@PRAXIA.UK</a>
+            <div class="status-text">Problem Provider</div>
+            <div>
+                <a href="mailto:WILL@PRAXIA.UK" class="email-link">WILL@PRAXIA.UK</a>
             </div>
         </div>
     </div>
     
-    <div class="stream-page" id="streamPage">
+    <!-- Stream overlay -->
+    <div class="stream-overlay" id="streamOverlay">
         <span class="close-stream" onclick="closeStream()">✕</span>
         <div class="stream" id="asciiStream"></div>
     </div>
@@ -375,33 +453,22 @@
             let stream = '';
             const streamDiv = document.getElementById('asciiStream');
             
-            // Start with a spiritual message
             stream += `<span class="spiritual">${getRandomElement(spiritualMessages)}</span>\n\n`;
-            
-            // Add a weird face
             stream += getRandomElement(weirdFaces) + '\n\n';
-            
-            // Main message
             stream += `<span class="message">${getRandomElement(messages)}</span>\n\n`;
             
-            // Generate varied stream
             for (let i = 0; i < 30; i++) {
                 const lineType = Math.random();
                 
                 if (lineType < 0.15) {
-                    // Main messages
                     stream += `<span class="message">${getRandomElement(messages)}</span>\n`;
                 } else if (lineType < 0.25) {
-                    // Weird faces
                     stream += getRandomElement(weirdFaces) + '\n';
                 } else if (lineType < 0.35) {
-                    // Spiritual messages
                     stream += `<span class="spiritual">${getRandomElement(spiritualMessages)}</span>\n`;
                 } else if (lineType < 0.45) {
-                    // ASCII pattern
                     stream += getRandomElement(asciiPatterns) + '\n\n';
                 } else if (lineType < 0.55) {
-                    // Symbol patterns
                     let symbolLine = '';
                     const symbol = getRandomElement(symbols);
                     for (let j = 0; j < 30; j++) {
@@ -409,21 +476,18 @@
                     }
                     stream += symbolLine + '\n';
                 } else if (lineType < 0.65) {
-                    // Glitch text
                     const glitchOptions = [
                         'C̸A̸N̸C̸E̸L̸', 'Q̴U̴I̴E̴T̴', 'V̷O̷I̷D̷', 'S̶I̶L̶E̶N̶C̶E̶',
                         'D̵I̵S̵C̵O̵N̵N̵E̵C̵T̵', 'U̸N̸P̸L̸U̸G̸'
                     ];
                     stream += `<span class="glitch">${getRandomElement(glitchOptions).repeat(Math.floor(Math.random() * 5) + 1)}</span>\n`;
                 } else if (lineType < 0.75) {
-                    // Mixed symbols line
                     let mixedLine = '';
                     for (let j = 0; j < 40; j++) {
                         mixedLine += getRandomElement(symbols);
                     }
                     stream += mixedLine + '\n';
                 } else if (lineType < 0.85) {
-                    // Rage text
                     const rageOptions = [
                         '[CANCEL]', '[QUIET]', '[TURN OFF]', '[UNSUBSCRIBE]',
                         'CANCEL YOUR STREAMING SUBSCRIPTIONS',
@@ -432,12 +496,10 @@
                     ];
                     stream += `<span class="rage-text">${getRandomElement(rageOptions)}</span>\n`;
                 } else {
-                    // Empty space for breathing
                     stream += '\n';
                 }
             }
             
-            // End with spiritual closure
             stream += '\n' + '═'.repeat(50) + '\n';
             stream += `<span class="spiritual">THE DIGITAL SABBATH BEGINS</span>\n`;
             stream += '═'.repeat(50) + '\n';
@@ -450,31 +512,27 @@
             streamDiv.innerHTML = stream;
         }
         
-        // Stream controls
         function openStream() {
-            document.getElementById('radioPage').style.display = 'none';
-            document.getElementById('streamPage').style.display = 'block';
-            document.body.style.overflow = 'auto';
+            document.getElementById('streamOverlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
             generateStream();
             startAutoScroll();
         }
         
         function closeStream() {
-            document.getElementById('radioPage').style.display = 'block';
-            document.getElementById('streamPage').style.display = 'none';
+            document.getElementById('streamOverlay').style.display = 'none';
             document.body.style.overflow = 'hidden';
             stopAutoScroll();
         }
         
-        // Auto-scroll
         let scrollInterval;
         let scrollPos = 0;
         
         function startAutoScroll() {
             scrollInterval = setInterval(() => {
                 scrollPos += 1;
-                window.scrollTo(0, scrollPos);
-                if (scrollPos > document.body.scrollHeight - window.innerHeight) {
+                document.getElementById('streamOverlay').scrollTop = scrollPos;
+                if (scrollPos > document.getElementById('streamOverlay').scrollHeight) {
                     scrollPos = 0;
                 }
             }, 50);
@@ -483,11 +541,9 @@
         function stopAutoScroll() {
             clearInterval(scrollInterval);
             scrollPos = 0;
-            window.scrollTo(0, 0);
         }
         
-        // Regenerate on click
-        document.getElementById('streamPage').addEventListener('click', function(e) {
+        document.getElementById('streamOverlay').addEventListener('click', function(e) {
             if (e.target.className !== 'close-stream') {
                 generateStream();
             }
