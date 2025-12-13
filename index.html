@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Praxia - Premium Digital Launch Services</title>
+    <title>Praxia - Practical Digital Solutions</title>
     <style>
-        /* Universal box-sizing and touch-callout prevention */
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +16,6 @@
             user-select: none;
         }
         
-        /* Body styling for full height, font, and text color */
         body {
             font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
             font-size: 14px;
@@ -30,7 +28,6 @@
             color: #FFFFFF;
         }
         
-        /* Lava lamp background container */
         .lava-lamp {
             position: fixed;
             top: 0;
@@ -42,7 +39,6 @@
             overflow: hidden;
         }
         
-        /* Individual blob styling for the lava lamp effect */
         .blob {
             position: absolute;
             border-radius: 50%;
@@ -51,7 +47,6 @@
             animation: float 20s infinite ease-in-out;
         }
         
-        /* Specific blob sizes, colors, and animation delays/durations */
         .blob1 {
             width: 600px;
             height: 600px;
@@ -92,30 +87,19 @@
             animation-duration: 28s;
         }
         
-        /* Keyframe animation for blob floating effect */
         @keyframes float {
-            0%, 100% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(100px, -100px) scale(1.1);
-            }
-            50% {
-                transform: translate(-100px, 100px) scale(0.9);
-            }
-            75% {
-                transform: translate(50px, -50px) scale(1.05);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(50px, -50px) scale(1.05); }
         }
         
-        /* Main content container */
         .main-content {
             position: relative;
             z-index: 1;
             min-height: 100vh;
         }
 
-        /* Flat navbar styling */
         .navbar {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(20px);
@@ -130,7 +114,7 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -162,9 +146,7 @@
             position: relative;
         }
 
-        .nav-link:hover {
-            color: #FFFFFF;
-        }
+        .nav-link:hover { color: #FFFFFF; }
 
         .nav-link:after {
             content: '';
@@ -177,9 +159,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-link:hover:after {
-            width: 100%;
-        }
+        .nav-link:hover:after { width: 100%; }
 
         .nav-cta {
             background: rgba(255, 255, 255, 0.1);
@@ -198,32 +178,29 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        /* Hero section */
         .hero {
             padding: 140px 40px 80px;
             text-align: center;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 300;
             letter-spacing: 0.02em;
             margin-bottom: 24px;
             line-height: 1.2;
         }
 
-        .hero h1 strong {
-            font-weight: 600;
-        }
+        .hero h1 strong { font-weight: 600; }
 
         .hero-subtitle {
-            font-size: 20px;
-            color: #FFFFFF;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 40px;
             font-weight: 300;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .hero-cta-group {
@@ -264,7 +241,6 @@
             border-bottom-color: #FFFFFF;
         }
 
-        /* Services section */
         .services {
             padding: 80px 40px;
             background: rgba(0, 0, 0, 0.2);
@@ -273,28 +249,28 @@
         }
 
         .section-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 300;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             letter-spacing: 0.02em;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 24px;
         }
 
         .service-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px 30px;
+            padding: 32px 24px;
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -302,19 +278,19 @@
         .service-card:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
         .service-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-            opacity: 0.8;
+            font-size: 36px;
+            margin-bottom: 16px;
+            opacity: 0.9;
         }
 
         .service-card h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 500;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             letter-spacing: 0.02em;
         }
 
@@ -324,16 +300,15 @@
             line-height: 1.6;
         }
 
-        /* Packages section */
         .packages {
             padding: 80px 40px;
         }
 
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
         }
 
         .package-card {
@@ -341,7 +316,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            padding: 36px 28px;
             border-radius: 8px;
             text-align: center;
             position: relative;
@@ -350,107 +325,48 @@
 
         .package-card.featured {
             border-color: rgba(255, 100, 200, 0.5);
-            transform: scale(1.05);
         }
 
         .package-card:hover {
             border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .package-card.featured:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-
-        /* Intro offer special styling */
-        .package-card.intro-offer {
-            background: linear-gradient(135deg, rgba(255, 100, 200, 0.1), rgba(150, 0, 255, 0.1));
-            border: 2px solid transparent;
-            background-clip: padding-box;
-            position: relative;
-            overflow: hidden;
-            padding-top: 50px;
-        }
-
-        .package-card.intro-offer::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #ff0096, #9600ff, #ff0096);
-            border-radius: 8px;
-            z-index: -1;
-            animation: shimmer 3s ease-in-out infinite;
-            background-size: 200% 200%;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .intro-badge {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: linear-gradient(135deg, #ff0096, #9600ff);
-            color: #FFFFFF;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .package-card.intro-offer .package-cta {
-            border: 2px solid #FFFFFF;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .package-card.intro-offer .package-cta:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: #FFFFFF;
+            transform: translateY(-4px);
         }
 
         .package-name {
-            font-size: 24px;
-            font-weight: 300;
+            font-size: 22px;
+            font-weight: 400;
             margin-bottom: 8px;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.03em;
         }
 
         .package-price {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: rgba(255, 100, 200, 0.9);
         }
 
         .package-features {
             list-style: none;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
+            text-align: left;
         }
 
         .package-features li {
-            padding: 12px 0;
+            padding: 10px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-size: 14px;
             color: rgba(255, 255, 255, 0.8);
         }
 
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
         .package-cta {
             background: rgba(255, 255, 255, 0.1);
             color: #FFFFFF;
-            padding: 12px 32px;
+            padding: 12px 28px;
             text-decoration: none;
             font-size: 14px;
             letter-spacing: 0.05em;
@@ -465,24 +381,23 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        .custom-package {
+        .custom-note {
             text-align: center;
-            padding: 40px;
+            padding: 32px;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .custom-package p {
-            font-size: 18px;
-            margin-bottom: 24px;
+        .custom-note p {
+            font-size: 16px;
+            margin-bottom: 20px;
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Footer */
         .footer {
-            padding: 60px 40px 40px;
+            padding: 50px 40px 30px;
             text-align: center;
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
@@ -495,21 +410,21 @@
         }
 
         .footer h2 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 300;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             letter-spacing: 0.02em;
         }
 
         .footer p {
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .email-link {
             color: #FFFFFF;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 18px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             transition: all 0.3s ease;
         }
@@ -519,14 +434,13 @@
         }
 
         .footer-bottom {
-            margin-top: 60px;
-            padding-top: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 12px;
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Mobile menu toggle */
         .mobile-toggle {
             display: none;
             background: none;
@@ -536,7 +450,6 @@
             cursor: pointer;
         }
 
-        /* Mobile menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -568,39 +481,18 @@
             padding: 10px;
         }
 
-        .mobile-menu .nav-cta {
-            margin-top: 20px;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 0 20px;
-            }
-
-            .navbar-nav {
-                display: none;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .mobile-menu.active {
-                display: block;
-            }
+            .navbar { padding: 0 20px; }
+            .navbar-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu.active { display: block; }
 
             .hero {
                 padding: 120px 20px 60px;
             }
 
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero-subtitle {
-                font-size: 18px;
-            }
+            .hero h1 { font-size: 28px; }
+            .hero-subtitle { font-size: 16px; }
 
             .hero-cta-group {
                 flex-direction: column;
@@ -608,21 +500,17 @@
             }
 
             .services, .packages {
-                padding: 60px 20px;
+                padding: 50px 20px;
             }
 
             .section-title {
-                font-size: 28px;
-                margin-bottom: 40px;
+                font-size: 24px;
+                margin-bottom: 32px;
             }
 
             .services-grid, .packages-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .package-card.featured {
-                transform: none;
+                gap: 16px;
             }
 
             .blob1 { width: 400px; height: 400px; }
@@ -633,7 +521,6 @@
     </style>
 </head>
 <body>
-    <!-- Lava lamp background -->
     <div class="lava-lamp">
         <div class="blob blob1"></div>
         <div class="blob blob2"></div>
@@ -641,164 +528,135 @@
         <div class="blob blob4"></div>
     </div>
     
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="navbar-brand">PRAXIA</a>
             <ul class="navbar-nav">
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#packages" class="nav-link">Packages</a></li>
-                <li><a href="#process" class="nav-link">How It Works</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-cta">Book Strategy Call</a></li>
+                <li><a href="case-study.html" class="nav-link">Case Study</a></li>
+                <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
             </ul>
             <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
         </div>
     </nav>
 
-    <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul class="navbar-nav">
             <li><a href="#services" class="nav-link" onclick="toggleMobileMenu()">Services</a></li>
             <li><a href="#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
-            <li><a href="#process" class="nav-link" onclick="toggleMobileMenu()">How It Works</a></li>
-            <li><a href="#about" class="nav-link" onclick="toggleMobileMenu()">About</a></li>
-            <li><a href="#contact" class="nav-cta" onclick="toggleMobileMenu()">Book Strategy Call</a></li>
+            <li><a href="case-study.html" class="nav-link" onclick="toggleMobileMenu()">Case Study</a></li>
+            <li><a href="#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
         </ul>
     </div>
 
-    <!-- Main content -->
     <div class="main-content">
-        <!-- Hero Section -->
         <section class="hero">
-            <h1>Launch Your Brand with <strong>Premium Digital Services</strong></h1>
+            <h1>Paid Ads That <strong>Actually Work</strong></h1>
             <p class="hero-subtitle">
-                Full digital launch support for funded startups and ambitious SMEs.<br>
-                From branding to PPC, we handle everything so you can focus on growth.
+                No rolling contracts. No monthly retainers. Just a one-time boost to your business that keeps working long after I'm done.<br><br>
+                3 years managing £90k+ monthly spend across Google, Microsoft, and Meta. I'll set you up properly, teach you what matters, and get out of your way.
             </p>
             <div class="hero-cta-group">
                 <a href="#packages" class="primary-cta">View Packages</a>
-                <a href="#contact" class="secondary-cta">Book Free Strategy Call</a>
+                <a href="#contact" class="secondary-cta">Let's Talk</a>
             </div>
         </section>
 
-        <!-- Services Section -->
         <section class="services" id="services">
             <div class="section-container">
-                <h2 class="section-title">Complete Digital Launch Services</h2>
+                <h2 class="section-title">What I Do</h2>
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon">🎯</div>
-                        <h3>PPC Advertising</h3>
-                        <p>Launch on Google, Microsoft, Meta & LinkedIn. Professional campaign setup, targeting, and optimisation for immediate results.</p>
+                        <h3>Google & Microsoft Ads</h3>
+                        <p>Search, Shopping, Performance Max. Proper campaign structure, keyword strategy, and ongoing optimisation that drives actual results.</p>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon">🌐</div>
-                        <h3>Website Creation</h3>
-                        <p>Conversion-focused websites that look premium and perform brilliantly. Fast, responsive, and built to convert visitors into customers.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">✨</div>
-                        <h3>Brand Identity</h3>
-                        <p>Professional branding that positions you perfectly. Logo design, colour systems, and brand guidelines via our partner designers.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon">🎬</div>
-                        <h3>Video & Creative</h3>
-                        <p>Promotional videos and graphic assets that capture attention. Professional production via our creative partners.</p>
+                        <div class="service-icon">📱</div>
+                        <h3>Meta & Social Ads</h3>
+                        <p>Facebook and Instagram campaigns. Audience targeting, creative strategy, and lead generation that makes sense for your budget.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">📊</div>
-                        <h3>Analytics Setup</h3>
-                        <p>Complete tracking implementation across GA4, Meta Pixel, LinkedIn Insights, and more. Know exactly what's working.</p>
+                        <h3>Tracking & Data</h3>
+                        <p>GA4, GTM, conversion tracking, offline conversions. The boring stuff that makes your campaigns measurable and profitable.</p>
                     </div>
                     <div class="service-card">
-                        <div class="service-icon">🚀</div>
-                        <h3>Launch Strategy</h3>
-                        <p>Comprehensive go-to-market planning. We align all channels for maximum impact from day one.</p>
+                        <div class="service-icon">🌐</div>
+                        <h3>Landing Pages</h3>
+                        <p>Simple, clean one-pagers that convert. No bloat, no complexity — just pages that load fast and get enquiries.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Packages Section -->
         <section class="packages" id="packages">
             <div class="section-container">
-                <h2 class="section-title">Investment Packages</h2>
+                <h2 class="section-title">Packages</h2>
                 <div class="packages-grid">
-                    <div class="package-card intro-offer">
-                        <span class="intro-badge">INTRO OFFER</span>
-                        <h3 class="package-name">Essentials</h3>
-                        <div class="package-price">£750-1.5k</div>
+                    <div class="package-card">
+                        <h3 class="package-name">Ads Setup</h3>
+                        <div class="package-price">£400–600</div>
                         <ul class="package-features">
-                            <li>Basic Logo + Colour System</li>
-                            <li>Simple 3-5 Page Website</li>
-                            <li>Google Ads Launch Setup</li>
-                            <li>Meta Ads Setup + Creative</li>
-                            <li>Basic Promo Graphics</li>
-                            <li>Analytics Implementation</li>
+                            <li>Google or Microsoft Ads account setup</li>
+                            <li>Campaign structure & keyword research</li>
+                            <li>Conversion tracking implementation</li>
+                            <li>2 weeks support post-launch</li>
                         </ul>
-                        <a href="#contact" class="package-cta">Book a Call</a>
+                        <a href="#contact" class="package-cta">Get Started</a>
                     </div>
                     <div class="package-card featured">
-                        <h3 class="package-name">Professional</h3>
-                        <div class="package-price">£5-10k</div>
+                        <h3 class="package-name">Full Launch</h3>
+                        <div class="package-price">£800–1,200</div>
                         <ul class="package-features">
-                            <li>Comprehensive Branding</li>
-                            <li>Premium Website (CMS/E-commerce)</li>
-                            <li>Multi-platform PPC Launch</li>
-                            <li>Multi-channel Social Ads</li>
-                            <li>Professional Video Shoot</li>
-                            <li>Advanced Analytics & CRM</li>
+                            <li>Google + Meta Ads setup</li>
+                            <li>Landing page (single page)</li>
+                            <li>GA4 & conversion tracking</li>
+                            <li>1 month optimisation included</li>
                         </ul>
                         <a href="#contact" class="package-cta">Most Popular</a>
                     </div>
                     <div class="package-card">
-                        <h3 class="package-name">Enterprise</h3>
-                        <div class="package-price">£10-20k</div>
+                        <h3 class="package-name">Landing Page</h3>
+                        <div class="package-price">£250–400</div>
                         <ul class="package-features">
-                            <li>Full Brand Strategy</li>
-                            <li>Bespoke Custom Website</li>
-                            <li>Advanced PPC Strategy</li>
-                            <li>Full-funnel Ad Strategy</li>
-                            <li>Full Video Production</li>
-                            <li>Ongoing Optimisation Support</li>
+                            <li>Clean, mobile-friendly design</li>
+                            <li>Fast loading, no bloat</li>
+                            <li>Contact form or booking integration</li>
+                            <li>Basic SEO setup</li>
                         </ul>
-                        <a href="#contact" class="package-cta">Book Call</a>
+                        <a href="#contact" class="package-cta">Get Started</a>
                     </div>
                 </div>
-                <div class="custom-package">
-                    <p>Need something custom or not sure where to start?</p>
-                    <a href="#contact" class="primary-cta">Book a Free Strategy Call</a>
+                <div class="custom-note">
+                    <p>Already running ads? I offer audits and ongoing management too.</p>
+                    <a href="#contact" class="primary-cta">Let's Chat</a>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer" id="contact">
             <div class="footer-content">
-                <h2>Ready to Launch?</h2>
-                <p>Let's discuss your project and create a custom launch plan.</p>
-                <a href="mailto:WILL@PRAXIA.UK" class="email-link">WILL@PRAXIA.UK</a>
+                <h2>Let's Talk</h2>
+                <p>Drop me a message and I'll get back to you within 24 hours.</p>
+                <a href="mailto:will@praxia.uk" class="email-link">hello@praxia.co.uk</a>
                 <div class="footer-bottom">
-                    <p>&copy; 2024 Praxia. Premium Digital Launch Services.</p>
+                    <p>© 2025 Praxia. Practical digital solutions.</p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- JavaScript for mobile menu -->
     <script>
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('active');
         }
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileToggle = document.querySelector('.mobile-toggle');
-            
             if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
                 mobileMenu.classList.remove('active');
             }
