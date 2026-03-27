@@ -722,7 +722,7 @@
             <div class="footer-content">
                 <h2>Let's Talk</h2>
                 <p>Drop me a message and I'll get back to you within 24 hours.</p>
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form class="contact-form" id="contactForm" action="https://script.google.com/macros/s/AKfycbyUc84aMShiAX6nlXhjbXr1iL2H5XWX7__hbC13x0oWvvD94qjgH_tMrv3Nv3L81e0y/exec" method="POST">
                     <input type="text" name="name" placeholder="Your name" required>
                     <input type="email" name="email" placeholder="Your email" required>
                     <textarea name="message" placeholder="What do you need help with?" required></textarea>
@@ -748,16 +748,17 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const data = new FormData(contactForm);
+                var data = {
+                    name: contactForm.querySelector('[name="name"]').value,
+                    email: contactForm.querySelector('[name="email"]').value,
+                    message: contactForm.querySelector('[name="message"]').value
+                };
                 fetch(contactForm.action, {
                     method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                }).then(function(response) {
-                    if (response.ok) {
-                        contactForm.style.display = 'none';
-                        document.getElementById('formSuccess').style.display = 'block';
-                    }
+                    body: JSON.stringify(data)
+                }).then(function() {
+                    contactForm.style.display = 'none';
+                    document.getElementById('formSuccess').style.display = 'block';
                 });
             });
         }
