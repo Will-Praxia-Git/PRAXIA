@@ -402,6 +402,144 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
+        .case-study-section {
+            padding: 80px 40px;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .case-study-label {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 100, 200, 0.8);
+            margin-bottom: 12px;
+        }
+
+        .case-study-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .case-study-title strong { font-weight: 600; }
+
+        .case-study-meta {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 48px;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 28px 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 42px;
+            font-weight: 600;
+            color: rgba(255, 100, 200, 0.9);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+
+        .case-study-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .case-study-block h4 {
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 14px;
+        }
+
+        .case-study-block p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+        }
+
+        .case-study-block ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .case-study-block ul li {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            line-height: 1.6;
+        }
+
+        .case-study-block ul li:last-child { border-bottom: none; }
+
+        .bi-section {
+            padding: 80px 40px;
+        }
+
+        .bi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .bi-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .bi-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .bi-card h3 {
+            font-size: 17px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .bi-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .case-study-section, .bi-section { padding: 50px 20px; }
+            .case-study-body { grid-template-columns: 1fr; gap: 28px; }
+            .stat-number { font-size: 34px; }
+        }
+
         .footer {
             padding: 50px 40px 30px;
             text-align: center;
@@ -562,13 +700,86 @@
 
     <div class="main-content">
         <section class="hero">
-            <h1>Microsoft Ads Setup &amp; Management <strong>For a Fraction of the Cost</strong></h1>
+            <h1>Microsoft Ads &amp; <strong>Business Intelligence</strong></h1>
             <p class="hero-subtitle">
-                Tap into millions of unique desktop searchers on Bing, Yahoo, and DuckDuckGo without the bloated agency fees. Professional setups, proper UET tracking, and ongoing optimization—priced to make launching a no-brainer.
+                Reaching the audiences Google misses — and building the reporting layer to prove what's actually working. From UET tracking to full BI dashboards, this is the end-to-end work most agencies don't offer.
             </p>
             <div class="hero-cta-group">
-                <a href="#packages" class="primary-cta">See Pricing</a>
-                <a href="#contact" class="secondary-cta">Ask a Question</a>
+                <a href="#case-study" class="primary-cta">See the Results</a>
+                <a href="index.html#contact" class="secondary-cta">Get in Touch</a>
+            </div>
+        </section>
+
+        <section class="case-study-section" id="case-study">
+            <div class="section-container">
+                <p class="case-study-label">Case Study</p>
+                <h2 class="case-study-title">Anonymous HVAC Company — <strong>5x ROAS in One Quarter</strong></h2>
+                <p class="case-study-meta">Industry: HVAC &nbsp;·&nbsp; Channel: Microsoft Ads &nbsp;·&nbsp; Timeframe: Q1 2025 &nbsp;·&nbsp; Client name withheld by request</p>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">5x</div>
+                        <div class="stat-label">Return on ad spend<br>within a single quarter</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">62%</div>
+                        <div class="stat-label">Lower cost per lead<br>vs. Google Ads</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3 wks</div>
+                        <div class="stat-label">From zero to<br>live, tracked campaigns</div>
+                    </div>
+                </div>
+
+                <div class="case-study-body">
+                    <div class="case-study-block">
+                        <h4>The Situation</h4>
+                        <p>An established HVAC business was running Google Ads but seeing diminishing returns in a competitive local market. CPC was rising, lead quality was inconsistent, and their tracking wasn't capturing offline conversions — meaning the algorithm was optimising blind. They had no presence on Microsoft Ads and no reporting beyond the platform's native numbers.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>What We Did</h4>
+                        <ul>
+                            <li>Full Microsoft UET tag implementation via GTM</li>
+                            <li>Offline conversion import tied to CRM close data</li>
+                            <li>From-scratch campaign build targeting seasonal demand signals</li>
+                            <li>Audience layering using in-market and remarketing lists</li>
+                            <li>Custom BI dashboard consolidating spend, leads, and revenue</li>
+                            <li>Weekly reporting cadence with actionable commentary</li>
+                        </ul>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>The Result</h4>
+                        <p>By the end of Q1, Microsoft Ads was delivering a 5x ROAS — outperforming their Google campaigns on a significantly lower budget. Cost per lead came in 62% cheaper. The BI layer meant they could see, for the first time, exactly which campaigns were driving booked jobs rather than just form fills.</p>
+                    </div>
+                    <div class="case-study-block">
+                        <h4>Why It Worked</h4>
+                        <p>Bing's desktop-heavy, older demographic is a strong fit for considered home services purchases. Combined with proper offline conversion data feeding back into bidding, and a reporting setup that connected ad spend directly to revenue, the campaign had everything it needed to optimise toward real business outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bi-section" id="bi">
+            <div class="section-container">
+                <h2 class="section-title">Comprehensive Business Intelligence</h2>
+                <div class="bi-grid">
+                    <div class="bi-card">
+                        <h3>Cross-Channel Reporting</h3>
+                        <p>Unified dashboards that pull Google Ads, Microsoft Ads, GA4, and your CRM into one view. No more toggling between platforms to piece together what's actually happening.</p>
+                    </div>
+                    <div class="bi-card">
+                        <h3>Offline Conversion Tracking</h3>
+                        <p>Connect your ad clicks to real-world outcomes — phone bookings, CRM deals, in-store visits. Feed that data back into platform bidding so the algorithm optimises for revenue, not just clicks.</p>
+                    </div>
+                    <div class="bi-card">
+                        <h3>Revenue Attribution</h3>
+                        <p>Move beyond last-click. Understand which campaigns, keywords, and channels are actually contributing to pipeline and which are just burning budget.</p>
+                    </div>
+                    <div class="bi-card">
+                        <h3>Actionable Weekly Reports</h3>
+                        <p>Plain-English commentary on what's changed, why it matters, and what we're doing about it. Not a wall of numbers — a clear picture of where your money is going and what it's returning.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -613,7 +824,7 @@
                             <li>Basic conversion tracking</li>
                             <li>1 week post-launch monitoring</li>
                         </ul>
-                        <a href="#contact" class="package-cta">Start Setup</a>
+                        <a href="index.html#contact" class="package-cta">Start Setup</a>
                     </div>
                     <div class="package-card featured">
                         <h3 class="package-name">Full Build + 1 Month</h3>
@@ -624,7 +835,7 @@
                             <li>Full tracking implementation</li>
                             <li>30 days of active optimization</li>
                         </ul>
-                        <a href="#contact" class="package-cta">Most Popular</a>
+                        <a href="index.html#contact" class="package-cta">Most Popular</a>
                     </div>
                     <div class="package-card">
                         <h3 class="package-name">Monthly Maintenance</h3>
@@ -635,12 +846,12 @@
                             <li>Budget &amp; bid management</li>
                             <li>Monthly performance report</li>
                         </ul>
-                        <a href="#contact" class="package-cta">Get Started</a>
+                        <a href="index.html#contact" class="package-cta">Get Started</a>
                     </div>
                 </div>
                 <div class="custom-note">
                     <p>Not sure if Microsoft Ads is right for your niche? Let's do a quick, free viability check before you spend a penny.</p>
-                    <a href="#contact" class="primary-cta">Request Free Audit</a>
+                    <a href="index.html#contact" class="primary-cta">Request Free Audit</a>
                 </div>
             </div>
         </section>
@@ -649,7 +860,7 @@
             <div class="footer-content">
                 <h2>Let's Talk</h2>
                 <p>Drop me a message and I'll get back to you within 24 hours.</p>
-                <a href="mailto:hello@praxia.uk" class="email-link">hello@praxia.uk</a>
+                <a href="index.html#contact" class="primary-cta" style="display:inline-block;margin-bottom:24px;">Get in Touch</a>
                 <div class="footer-bottom">
                     <p>© 2026 Praxia. Practical digital solutions.</p>
                 </div>
