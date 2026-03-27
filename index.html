@@ -440,6 +440,77 @@
             border-bottom-color: #FFFFFF;
         }
 
+        .contact-form {
+            margin: 28px 0 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            color: #FFFFFF;
+            font-family: inherit;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+            padding: 12px 16px;
+            width: 100%;
+            transition: border-color 0.3s ease;
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: rgba(255, 100, 200, 0.6);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 4px;
+            color: #0F0620;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            padding: 14px 32px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form-submit:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .form-success {
+            display: none;
+            background: rgba(255, 100, 200, 0.1);
+            border: 1px solid rgba(255, 100, 200, 0.3);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            padding: 14px;
+            text-align: center;
+        }
+
         .footer-bottom {
             margin-top: 40px;
             padding-top: 30px;
@@ -651,7 +722,15 @@
             <div class="footer-content">
                 <h2>Let's Talk</h2>
                 <p>Drop me a message and I'll get back to you within 24 hours.</p>
-                <a href="mailto:hello@praxia.uk" class="email-link">hello@praxia.uk</a>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <input type="text" name="name" placeholder="Your name" required>
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <textarea name="message" placeholder="What do you need help with?" required></textarea>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    Thanks — I'll be in touch within 24 hours.
+                </div>
                 <div class="footer-bottom">
                     <p>© 2025 Praxia. Practical digital solutions.</p>
                 </div>
@@ -663,6 +742,24 @@
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             mobileMenu.classList.toggle('active');
+        }
+
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const data = new FormData(contactForm);
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function(response) {
+                    if (response.ok) {
+                        contactForm.style.display = 'none';
+                        document.getElementById('formSuccess').style.display = 'block';
+                    }
+                });
+            });
         }
 
         document.addEventListener('click', function(event) {
