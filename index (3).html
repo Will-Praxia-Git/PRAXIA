@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)https://praxia.uk/#contact -->
+<html lang="en"><head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Praxia - Practical Digital Solutions</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239600ff'/%3E%3Cstop offset='100%25' stop-color='%23ff0096'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='18' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            color: #FFFFFF;
+        }
+        
+        .lava-lamp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #2D1B69 0%, #0F0620 100%);
+            overflow: hidden;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 20s infinite ease-in-out;
+        }
+        
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.8) 0%, rgba(255, 0, 150, 0) 70%);
+            top: -200px;
+            left: -200px;
+            animation-duration: 25s;
+        }
+        
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(150, 0, 255, 0.8) 0%, rgba(150, 0, 255, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+        
+        .blob3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 0, 100, 0.8) 0%, rgba(255, 0, 100, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+        
+        .blob4 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 0, 255, 0.8) 0%, rgba(200, 0, 255, 0) 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(50px, -50px) scale(1.05); }
+        }
+        
+        .main-content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-size: 20px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover { color: #FFFFFF; }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #FFFFFF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after { width: 100%; }
+
+        .nav-cta {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero {
+            padding: 140px 40px 80px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .hero h1 strong { font-weight: 600; }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .primary-cta {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0F0620;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .primary-cta:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .secondary-cta {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .secondary-cta:hover {
+            color: #FFFFFF;
+            border-bottom-color: #FFFFFF;
+        }
+
+        .services {
+            padding: 80px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 0.02em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .packages {
+            padding: 80px 40px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .package-card {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 36px 28px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .package-card.featured {
+            border-color: rgba(255, 100, 200, 0.5);
+        }
+
+        .package-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .package-name {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            letter-spacing: 0.03em;
+        }
+
+        .package-price {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: rgba(255, 100, 200, 0.9);
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+
+        .package-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-cta {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .package-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .custom-note {
+            text-align: center;
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .custom-note p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .footer {
+            padding: 50px 40px 30px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer h2 {
+            font-size: 26px;
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+        }
+
+        .email-link {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .email-link:hover {
+            border-bottom-color: #FFFFFF;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px;
+            z-index: 99;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .navbar-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu.active { display: block; }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero h1 { font-size: 28px; }
+            .hero-subtitle { font-size: 16px; }
+
+            .hero-cta-group {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .services, .packages {
+                padding: 50px 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 32px;
+            }
+
+            .services-grid, .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .blob1 { width: 400px; height: 400px; }
+            .blob2 { width: 350px; height: 350px; }
+            .blob3 { width: 300px; height: 300px; }
+            .blob4 { width: 250px; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVS32QS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="lava-lamp">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="blob blob4"></div>
+    </div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://praxia.uk/#" class="navbar-brand">PRAXIA</a>
+            <ul class="navbar-nav">
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="case-study.html" class="nav-link">Case Study: Nexus</a></li>
+                <li><a href="casestudyga4.html" class="nav-link">Case Study: GA4</a></li>
+                <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="navbar-nav">
+            <li><a href="#services" class="nav-link" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
+            <li><a href="case-study.html" class="nav-link" onclick="toggleMobileMenu()">Case Study: Nexus</a></li>
+            <li><a href="casestudyga4.html" class="nav-link" onclick="toggleMobileMenu()">Case Study: GA4</a></li>
+            <li><a href="#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <section class="hero">
+            <h1>PPC &amp; Analytics <strong>Without the Agency Markup</strong></h1>
+            <p class="hero-subtitle">
+                One-time packages. No retainers. No account managers. Just direct access to someone who actually builds and runs campaigns daily.<br><br>
+                3 years managing £90k+ monthly across Google, Microsoft &amp; Meta. Specialised in tracking, measurement, and the technical implementation most agencies outsource or skip entirely.
+            </p>
+            <div class="hero-cta-group">
+                <a href="https://praxia.uk/#packages" class="primary-cta">View Packages</a>
+                <a href="https://praxia.uk/#contact" class="secondary-cta">Let's Talk</a>
+            </div>
+        </section>
+
+        <section class="services" id="services">
+            <div class="section-container">
+                <h2 class="section-title">What I Do</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Tracking &amp; Measurement</h3>
+                        <p>GA4, GTM, conversion tracking, offline conversion uploads, GCLID capture. Proper measurement setup so you actually know what's working.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎯</div>
+                        <h3>Google &amp; Microsoft Ads</h3>
+                        <p>Search, Shopping, Performance Max. Campaign builds, restructures, and technical fixes. The stuff that moves the needle, not just account tweaks.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Technical Implementation</h3>
+                        <p>Feed optimisation, API integrations, custom scripts, enhanced conversions. The back-end work agencies charge a premium for or skip altogether.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3>Audits &amp; Fixes</h3>
+                        <p>Account audits, tracking diagnostics, Merchant Center issues. Find what's broken, fix it, document it so you understand what changed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="packages" id="packages">
+            <div class="section-container">
+                <h2 class="section-title">Packages</h2>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <h3 class="package-name">Tracking Setup</h3>
+                        <div class="package-price">£300–500</div>
+                        <ul class="package-features">
+                            <li>GA4 &amp; GTM implementation</li>
+                            <li>Conversion tracking (forms, calls, purchases)</li>
+                            <li>Enhanced conversions setup</li>
+                            <li>Documentation &amp; handover</li>
+                        </ul>
+                        <a href="https://praxia.uk/#contact" class="package-cta">Get Started</a>
+                    </div>
+                    <div class="package-card featured">
+                        <h3 class="package-name">Campaign Build</h3>
+                        <div class="package-price">£500–800</div>
+                        <ul class="package-features">
+                            <li>Google or Microsoft Ads setup</li>
+                            <li>Campaign structure &amp; keyword research</li>
+                            <li>Conversion tracking included</li>
+                            <li>2 weeks post-launch support</li>
+                        </ul>
+                        <a href="https://praxia.uk/#contact" class="package-cta">Most Popular</a>
+                    </div>
+                    <div class="package-card">
+                        <h3 class="package-name">Account Audit</h3>
+                        <div class="package-price">£200–350</div>
+                        <ul class="package-features">
+                            <li>Full account review</li>
+                            <li>Tracking &amp; measurement check</li>
+                            <li>Prioritised recommendations</li>
+                            <li>Written report you can action</li>
+                        </ul>
+                        <a href="https://praxia.uk/#contact" class="package-cta">Get Started</a>
+                    </div>
+                </div>
+                <div class="custom-note">
+                    <p>Need something specific? Feed fixes, API work, Merchant Center issues — just ask.</p>
+                    <a href="https://praxia.uk/#contact" class="primary-cta">Let's Chat</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer" id="contact">
+            <div class="footer-content">
+                <h2>Let's Talk</h2>
+                <p>Drop me a message and I'll get back to you within 24 hours.</p>
+                <a href="mailto:hello@praxia.uk" class="email-link">hello@praxia.uk</a>
+                <div class="footer-bottom">
+                    <p>© 2025 Praxia. Practical digital solutions.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
