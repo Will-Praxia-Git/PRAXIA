@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)https://praxia.uk/#contact -->
 <html lang="en-GB"><head>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -8,7 +8,7 @@
     })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Freelance PPC, Tracking &amp; Analytics Specialist | Praxia</title>
@@ -25,7 +25,12 @@
     <meta property="og:url" content="https://praxia.uk/">
     <meta property="og:title" content="PPC, Tracking &amp; Analytics, Without the Agency Markup | Praxia">
     <meta property="og:description" content="Freelance Google Ads, Microsoft Ads and GA4 specialist. One-off projects, no retainers. Custom conversions, offline conversion pipelines, landing page builds and measurement done properly.">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://praxia.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Praxia: freelance PPC, tracking and analytics. One-off projects, no retainers, no agency markup.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://praxia.uk/og-image.png">
     <meta name="twitter:title" content="Freelance PPC, Tracking &amp; Analytics Specialist | Praxia">
     <meta name="twitter:description" content="Google Ads, Microsoft Ads and GA4/GTM done properly. One-off projects, no retainers, no agency markup.">
 
@@ -46,6 +51,8 @@
           "@id": "https://praxia.uk/#business",
           "name": "Praxia",
           "url": "https://praxia.uk/",
+          "image": "https://praxia.uk/og-image.png",
+          "email": "will@praxia.uk",
           "description": "Freelance paid media and measurement specialist: Google Ads, Microsoft Ads for B2B, GA4 and GTM, custom conversions, offline conversion pipelines and conversion-focused landing page builds. One-off projects, no retainers.",
           "areaServed": { "@type": "Country", "name": "United Kingdom" },
           "address": { "@type": "PostalAddress", "addressLocality": "Manchester", "addressCountry": "GB" },
@@ -129,6 +136,16 @@
             },
             {
               "@type": "Question",
+              "name": "Can you set up Consent Mode v2 and server-side tagging?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. Consent Mode v2 implementation is part of the GA4 and GTM work, and server-side tagging where it makes sense for the account. Both done so the conversion data stays usable after consent." }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you build landing pages as well as run the ads?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. Custom, conversion-focused landing pages built for paid traffic, with GA4, GTM and conversion tracking wired in from the first line. The page, the campaign and the measurement are built as one piece of work." }
+            },
+            {
+              "@type": "Question",
               "name": "Where are you based?",
               "acceptedAnswer": { "@type": "Answer", "text": "Manchester, working remotely with clients anywhere in the UK and beyond." }
             }
@@ -138,14 +155,12 @@
     }
     </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239600ff'/%3E%3Cstop offset='100%25' stop-color='%23ff0096'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='18' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
         
         body {
@@ -330,9 +345,32 @@
         .hero-subtitle {
             font-size: 18px;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             font-weight: 300;
             line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .hero-stat {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hero-stat strong {
+            color: rgba(255, 100, 200, 0.9);
+            font-weight: 600;
         }
 
         .hero-cta-group {
@@ -942,7 +980,7 @@
     
     <nav class="navbar">
         <div class="nav-container">
-            <a href="https://praxia.uk/#" class="navbar-brand">PRAXIA</a>
+            <a href="https://praxia.uk/" class="navbar-brand">PRAXIA</a>
             <ul class="navbar-nav">
                 <li><a href="#services" class="nav-link">Services</a></li>
                 <li><a href="#work" class="nav-link">Work</a></li>
@@ -969,8 +1007,13 @@
             <h1>PPC &amp; Analytics <strong>Without the Agency Markup</strong></h1>
             <p class="hero-subtitle">
                 One-off projects. No retainers, no account managers, no agency markup. You deal directly with the person building and running the campaigns.<br><br>
-                Four years managing up to £165k a month across Google, Microsoft and Meta, over 13+ B2B and lead-gen accounts. Specialised in Microsoft Ads for B2B, tracking and measurement, custom conversions, and the offline conversion plumbing that makes smart bidding actually work.
+                Specialised in Microsoft Ads for B2B, tracking and measurement, custom conversions, and the offline conversion plumbing that makes smart bidding actually work.
             </p>
+            <div class="hero-stats">
+                <span class="hero-stat"><strong>Up to £165k/mo</strong> managed ad spend</span>
+                <span class="hero-stat"><strong>13+</strong> B2B &amp; lead-gen accounts</span>
+                <span class="hero-stat"><strong>4 years</strong> across Google, Microsoft &amp; Meta</span>
+            </div>
             <div class="hero-cta-group">
                 <a href="https://praxia.uk/#packages" class="primary-cta">View Packages</a>
                 <a href="https://praxia.uk/#contact" class="secondary-cta">Let's Talk</a>
@@ -1182,6 +1225,7 @@
                 </div>
                 <div class="custom-note">
                     <p>Need something specific? Landing page builds, feed fixes, API work, Merchant Center issues, or a Microsoft account that needs rebuilding from scratch: just ask.</p>
+                    <p>Not sure whether Microsoft Ads fits your niche, or whether your tracking is actually broken? Ask for a free viability check before you spend anything.</p>
                     <a href="https://praxia.uk/#contact" class="primary-cta">Let's Talk</a>
                 </div>
             </div>
@@ -1208,6 +1252,14 @@
                         <div class="faq-answer">Yes. Auditing and rebuilding broken conversion tracking, GA4 and GTM setups and offline conversion pipelines is a large part of the work.</div>
                     </details>
                     <details class="faq-item">
+                        <summary>Can you set up Consent Mode v2 and server-side tagging?</summary>
+                        <div class="faq-answer">Yes. Consent Mode v2 implementation is part of the GA4 and GTM work, and server-side tagging where it makes sense for the account. Both done so the conversion data stays usable after consent.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Do you build landing pages as well as run the ads?</summary>
+                        <div class="faq-answer">Yes. Custom, conversion-focused landing pages built for paid traffic, with GA4, GTM and conversion tracking wired in from the first line. The page, the campaign and the measurement are built as one piece of work.</div>
+                    </details>
+                    <details class="faq-item">
                         <summary>Where are you based?</summary>
                         <div class="faq-answer">Manchester, working remotely with clients anywhere in the UK and beyond.</div>
                     </details>
@@ -1228,6 +1280,7 @@
                 <div class="form-success" id="formSuccess">
                     Thanks, I'll be in touch within 24 hours.
                 </div>
+                <p style="margin-top: 20px; font-size: 14px; color: rgba(255, 255, 255, 0.6);">Prefer email? <a href="mailto:will@praxia.uk" class="email-link" style="font-size: 14px;">will@praxia.uk</a></p>
                 <div class="footer-bottom">
                     <p>Praxia · Freelance PPC, tracking and analytics · Manchester, UK and remote</p>
                     <p>© 2026 Praxia. Practical digital solutions.</p>
@@ -1257,6 +1310,10 @@
                 }).then(function() {
                     contactForm.style.display = 'none';
                     document.getElementById('formSuccess').style.display = 'block';
+                }).catch(function() {
+                    var success = document.getElementById('formSuccess');
+                    success.innerHTML = 'Something blocked the form. Email me instead: <a href="mailto:will@praxia.uk" style="color:#fff;">will@praxia.uk</a>';
+                    success.style.display = 'block';
                 });
             });
         }

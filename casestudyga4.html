@@ -1,25 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Case Study: GA4 Tracking Implementation - Praxia</title>
+    <title>GA4 &amp; GTM Tracking Case Study: Two Properties, One View | Praxia</title>
+    <meta name="description" content="GA4 and GTM case study: revenue tracking on a membership portal plus application-intent tracking on a course catalogue, including a form processed on an external domain. Freelance tracking implementation, one-off project.">
+    <meta name="author" content="Praxia">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0F0620">
+    <link rel="canonical" href="https://praxia.uk/casestudyga4.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Praxia">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://praxia.uk/casestudyga4.html">
+    <meta property="og:title" content="GA4 &amp; GTM Tracking Case Study: Two Properties, One View | Praxia">
+    <meta property="og:description" content="Revenue tracking on a membership portal plus application-intent tracking on a course catalogue, including a form processed on an external domain.">
+    <meta property="og:image" content="https://praxia.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GA4 &amp; GTM Tracking Case Study: Two Properties, One View | Praxia">
+    <meta name="twitter:description" content="Revenue tracking on a membership portal plus application-intent tracking on a course catalogue, including a form processed on an external domain.">
+    <meta name="twitter:image" content="https://praxia.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://praxia.uk/casestudyga4.html",
+          "url": "https://praxia.uk/casestudyga4.html",
+          "name": "GA4 & GTM Tracking Case Study: Two Properties, One View",
+          "inLanguage": "en-GB",
+          "isPartOf": { "@id": "https://praxia.uk/#website" },
+          "about": { "@id": "https://praxia.uk/#business" },
+          "description": "GA4 and GTM case study: revenue tracking on a membership portal plus application-intent tracking on a course catalogue, including a form processed on an external domain."
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praxia.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "GA4 Tracking Case Study", "item": "https://praxia.uk/casestudyga4.html" }
+          ]
+        }
+      ]
+    }
+    </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239600ff'/%3E%3Cstop offset='100%25' stop-color='%23ff0096'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='18' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
         
         body {
@@ -440,13 +483,13 @@
         <section class="case-study-body">
             <div class="glass-card">
                 <h2>The Brief</h2>
-                <p>An educational organization required comprehensive GA4 tracking on their user registrations. The goal was to establish a clear pipeline of data bridging two distinct digital properties: their primary course catalogue website and their dedicated online membership portal.</p>
+                <p>An educational organisation required comprehensive GA4 tracking on their user registrations. The goal was to establish a clear pipeline of data bridging two distinct digital properties: their primary course catalogue website and their dedicated online membership portal.</p>
                 <p>This required two specific measurement approaches to capture both direct subscription revenue and early-stage application intent.</p>
             </div>
 
             <div class="glass-card">
                 <h2>Property 1: Membership Portal Tracking</h2>
-                <p>For the organization's membership portal, we needed precise, server-side-style reliability for revenue tracking. We implemented this tracking via a custom PHP code snippet directly into their WordPress environment.</p>
+                <p>The organisation's membership portal needed precise, server-side-style reliability for revenue tracking. I implemented this via a custom PHP code snippet directly in their WordPress environment.</p>
 
                 <div class="highlight-box">
                     <p><strong>Revenue Measurement:</strong> All configured events pass dynamic value and currency parameters back to GA4, ensuring accurate revenue reporting alongside membership activity.</p>
@@ -462,9 +505,9 @@
 
             <div class="glass-card">
                 <h2>Property 2: Course Application Tracking</h2>
-                <p>The main educational site required a different strategy, which we configured entirely through Google Tag Manager.</p>
+                <p>The main educational site required a different strategy, which I configured entirely through Google Tag Manager.</p>
                 <p><strong>The Technical Hurdle:</strong> Actual application form submissions were being processed on an entirely separate, external domain. Direct cross-domain form tracking wasn't viable due to access constraints.</p>
-                <p><strong>The Solution:</strong> We bypassed the external domain limitation by tracking "Apply Now" button clicks originating from individual course pages, measuring high-intent behavior just before the user transitioned off-site.</p>
+                <p><strong>The Solution:</strong> I bypassed the external domain limitation by tracking "Apply Now" button clicks originating from individual course pages, measuring high-intent behaviour just before the user transitioned off-site.</p>
 
                 <p>Configured application intent events include:</p>
                 <ul>
