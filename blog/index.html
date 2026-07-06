@@ -46,6 +46,8 @@
           "publisher": { "@id": "https://praxia.uk/#business" },
           "isPartOf": { "@id": "https://praxia.uk/#website" },
           "blogPost": [
+            { "@id": "https://praxia.uk/blog/google-ads-api-restructure.html#post" },
+            { "@id": "https://praxia.uk/blog/keyword-planner-api.html#post" },
             { "@id": "https://praxia.uk/blog/ai-fake-leads.html#post" }
           ]
         },
@@ -449,6 +451,30 @@
         </section>
 
         <section class="blog-list">
+            <a class="post-card" href="google-ads-api-restructure.html">
+                <div class="post-meta">6 July 2026 · 7 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">Google Ads API</span>
+                    <span class="post-tag">Automation</span>
+                    <span class="post-tag">PPC</span>
+                </div>
+                <h2>What Actually Breaks When You Restructure Google Ads Accounts via the API</h2>
+                <p>Every tutorial shows one clean mutate call. Real restructures are thousands of operations that depend on each other, and the work lives in what the tutorials skip: partial failure handling that turns errors into a fixable list, MutateOperation batching, and the ordering rules around temporary resource IDs. Lessons from scripted multi-market builds with the Python client.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
+            <a class="post-card" href="keyword-planner-api.html">
+                <div class="post-meta">6 July 2026 · 6 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">Keyword research</span>
+                    <span class="post-tag">Google Ads API</span>
+                    <span class="post-tag">Automation</span>
+                </div>
+                <h2>Why I Stopped Using the Keyword Planner UI and Built My Own Tooling</h2>
+                <p>The Keyword Planner UI works for occasional research and breaks down across many accounts and markets: hand-assembled settings, exports that feed nothing, copy-paste errors that sit silently in the data. How querying the API directly turns keyword research into one repeatable run whose output feeds restructures, negative lists and asset briefs.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
             <a class="post-card" href="ai-fake-leads.html">
                 <div class="post-meta">6 July 2026 · 8 minute read</div>
                 <div class="post-tags">

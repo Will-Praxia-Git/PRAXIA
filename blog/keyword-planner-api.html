@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Why I Stopped Using the Keyword Planner UI and Built My Own Tooling | Praxia</title>
+    <meta name="description" content="The Keyword Planner UI works for occasional research. Across many accounts and markets it breaks down. How I query the Keyword Planner API directly for volume, competition and CPC data, normalised for restructures and negative keyword builds.">
+    <meta name="keywords" content="keyword planner api, keyword planner api python, generatekeywordideas, keyword research automation, google ads keyword research, keyword planner api vs ui, keyword ideas api, multi market keyword research">
+    <meta name="author" content="Praxia">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0F0620">
+    <link rel="canonical" href="https://praxia.uk/blog/keyword-planner-api.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Praxia">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://praxia.uk/blog/keyword-planner-api.html">
+    <meta property="og:title" content="Why I Stopped Using the Keyword Planner UI and Built My Own Tooling">
+    <meta property="og:description" content="Keyword research across many accounts and markets, run as one repeatable job on the Keyword Planner API instead of hand-driven Planner sessions.">
+    <meta property="og:image" content="https://praxia.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-07-06">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why I Stopped Using the Keyword Planner UI and Built My Own Tooling">
+    <meta name="twitter:description" content="Keyword research across many accounts and markets, run as one repeatable job on the Keyword Planner API instead of hand-driven Planner sessions.">
+    <meta name="twitter:image" content="https://praxia.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://praxia.uk/blog/keyword-planner-api.html#post",
+          "url": "https://praxia.uk/blog/keyword-planner-api.html",
+          "mainEntityOfPage": "https://praxia.uk/blog/keyword-planner-api.html",
+          "headline": "Why I Stopped Using the Keyword Planner UI and Built My Own Tooling",
+          "description": "The Keyword Planner UI works for occasional research and breaks down across many accounts and markets. Querying the Keyword Planner API directly for volume, competition and CPC data, normalised for restructures and negative keyword builds.",
+          "inLanguage": "en-GB",
+          "datePublished": "2026-07-06",
+          "dateModified": "2026-07-06",
+          "image": "https://praxia.uk/og-image.png",
+          "author": { "@type": "Organization", "name": "Praxia", "url": "https://praxia.uk/" },
+          "publisher": { "@id": "https://praxia.uk/#business" },
+          "isPartOf": { "@id": "https://praxia.uk/blog/#blog" },
+          "keywords": "Keyword Planner API, GenerateKeywordIdeas, keyword research automation, multi-market keyword research, Python"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praxia.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://praxia.uk/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Keyword Planner API Tooling", "item": "https://praxia.uk/blog/keyword-planner-api.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239600ff'/%3E%3Cstop offset='100%25' stop-color='%23ff0096'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='18' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            color: #FFFFFF;
+        }
+
+        .lava-lamp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #2D1B69 0%, #0F0620 100%);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.8) 0%, rgba(255, 0, 150, 0) 70%);
+            top: -200px;
+            left: -200px;
+            animation-duration: 25s;
+        }
+
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(150, 0, 255, 0.8) 0%, rgba(150, 0, 255, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .blob3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 0, 100, 0.8) 0%, rgba(255, 0, 100, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+
+        .blob4 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 0, 255, 0.8) 0%, rgba(200, 0, 255, 0) 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(50px, -50px) scale(1.05); }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-size: 20px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover { color: #FFFFFF; }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #FFFFFF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after { width: 100%; }
+
+        .nav-cta {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px;
+            z-index: 99;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        /* Article */
+        .post-header {
+            padding: 140px 40px 50px;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .post-header h1 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .post-header h1 strong { font-weight: 600; }
+
+        .post-header .post-meta {
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 100, 200, 0.2);
+            border: 1px solid rgba(255, 100, 200, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin: 0 4px 8px;
+        }
+
+        .post-body {
+            padding: 0 40px 60px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .glass-card h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: rgba(255, 100, 200, 0.9);
+        }
+
+        .glass-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 10px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .glass-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .glass-card a {
+            color: rgba(255, 140, 210, 0.95);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .glass-card a:hover { color: #FFFFFF; }
+
+        .glass-card ul,
+        .glass-card ol {
+            padding-left: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card li {
+            margin-bottom: 8px;
+        }
+
+        .glass-card code {
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+
+        .glass-card pre {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            margin: 16px 0;
+            line-height: 1.55;
+        }
+
+        .glass-card pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight-box {
+            background: rgba(255, 100, 200, 0.1);
+            border-left: 3px solid rgba(255, 100, 200, 0.6);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover { color: #FFFFFF; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 28px;
+            font-size: 16px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-cta {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0F0620;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .primary-cta:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            padding: 30px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .navbar-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu.active { display: block; }
+
+            .post-header {
+                padding: 120px 20px 36px;
+            }
+
+            .post-header h1 { font-size: 26px; }
+
+            .post-body {
+                padding: 0 20px 40px;
+            }
+
+            .glass-card {
+                padding: 28px 22px;
+            }
+
+            .blob1 { width: 400px; height: 400px; }
+            .blob2 { width: 350px; height: 350px; }
+            .blob3 { width: 300px; height: 300px; }
+            .blob4 { width: 250px; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVS32QS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="lava-lamp">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="blob blob4"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="navbar-brand">PRAXIA</a>
+            <ul class="navbar-nav">
+                <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li><a href="../index.html#work" class="nav-link">Work</a></li>
+                <li><a href="../index.html#packages" class="nav-link">Packages</a></li>
+                <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="navbar-nav">
+            <li><a href="../index.html#services" class="nav-link" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="../index.html#work" class="nav-link" onclick="toggleMobileMenu()">Work</a></li>
+            <li><a href="../index.html#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
+            <li><a href="../index.html#faq" class="nav-link" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <article>
+        <section class="post-header">
+            <h1>Why I Stopped Using the Keyword Planner UI <strong>and Built My Own Tooling</strong></h1>
+            <p class="post-meta">6 July 2026 · 6 minute read · by Praxia</p>
+            <div class="tags">
+                <span class="tag">Keyword research</span>
+                <span class="tag">Google Ads API</span>
+                <span class="tag">Automation</span>
+                <span class="tag">PPC</span>
+            </div>
+        </section>
+
+        <section class="post-body">
+            <a class="back-to-blog" href="index.html">&larr; All posts</a>
+
+            <div class="glass-card">
+                <h2>The UI is fine, until it is not</h2>
+                <p>Keyword Planner does its job if you are researching one account now and then: type in some seeds, set a location, skim the ideas, export a CSV. Nothing wrong with it at that scale, and I still open it for quick sense checks.</p>
+                <p>The problem is recurrence. My keyword research is rarely "one account, once". It is several brands, several markets, refreshed on a schedule, and the output has to feed real deliverables: restructure build sheets, negative keyword lists, asset briefs. Run that through the UI and you are not doing research any more. You are doing data entry with a research step attached. So I moved the whole thing onto the Keyword Planner API and have not gone back.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What the interface actually can't do</h2>
+                <ul>
+                    <li><strong>Repeatable queries.</strong> There is no way to tell the UI "run these forty seed lists against these five markets, exactly the way you did last quarter". Every session is hand-assembled state: seeds pasted in, location switched, language switched, network toggled. Forget to reset one setting and this quarter's UK numbers get pulled with the last session's US location still applied. I have caught that mistake in my own work, which is part of why this tooling exists.</li>
+                    <li><strong>Usable exports.</strong> Planner's CSV is a snapshot of the screen, with its settings baked into a couple of header rows. Columns you do not need, the grouping you do need absent, and every downstream use starts with twenty minutes of reshaping in a spreadsheet.</li>
+                    <li><strong>Volume without errors.</strong> Copy and paste is a manual transform, and manual transforms fail silently at volume: a truncated paste, a duplicated block, a seed list run against the wrong market. None of these announce themselves. They just sit in the data.</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h2>What the tooling does instead</h2>
+                <p>It is a Python tool built on the same official client library as my <a href="google-ads-api-restructure.html">restructure scripts</a>, and it does three jobs.</p>
+
+                <h3>1. Query the Planner data directly</h3>
+                <p>The service behind Planner, <code>KeywordPlanIdeaService</code>, exposes the same data the UI shows. <code>GenerateKeywordIdeas</code> takes seed keywords or a URL, plus a language and a set of geo target constants, and returns keyword ideas with their metrics: average monthly searches, competition, and the top-of-page bid range that stands in for CPC. Bids arrive in micros, so divide by a million before anyone else reads the sheet. And when I already have the keyword list and just need current numbers for it, the sibling call for historical metrics does that without the expansion.</p>
+                <div class="highlight-box">
+                    <p><strong>Worth saying plainly:</strong> the API does not unlock better data. The volumes are the same bucketed averages the UI shows, wearing the same rounding. What it unlocks is running the same query five hundred times, identically, without a human holding the state.</p>
+                </div>
+
+                <h3>2. Normalise everything into one structure</h3>
+                <p>Every result lands in one table: market, seed set, keyword, volume, competition index, bid range, and the theme my grouping rules assign. Deduplication across seed sets happens once, centrally, instead of per-spreadsheet. The output is deliberately the input format of the next stage: the restructure script reads the same shape, negative keyword candidates fall out of the same table (high-volume terms the expansion surfaced that have no business converting), and asset briefs take the top themes per market.</p>
+
+                <h3>3. Handle many markets in one pass</h3>
+                <p>Markets are a list of geo and language constant pairs, seed lists are per-market tabs in the same workbook, and the tool loops the lot in one run. No settings to switch, no state to remember between sessions. The planning services carry much tighter rate limits than the reporting side of the API, so the tool queues, paces and retries rather than blasting requests. Slower per call, but it runs unattended, which is the point.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>A concrete example</h2>
+                <p>The same multi-market industrial account from the restructure post: five markets, per-market seed lists of a few dozen terms each, agreed with the client up front. One run returned a few thousand candidate keywords per market, with volumes, competition and bid ranges, already grouped into themes, in a single table.</p>
+                <p>Done manually, that is days per market: a Planner session per seed list, an export each time, the reshaping afterwards, and the settings-switching risk on every single session. Done this way, the machine part took a morning, and the rest of the time went where it should have gone all along: deciding which themes deserve their own campaigns, which markets need different treatment, and which of the surfaced terms go straight onto the negative lists.</p>
+                <p>The output fed three deliverables directly, with nothing retyped in between: the build sheet the restructure script consumed, the shared negative keyword lists, and the keyword themes for asset briefs.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Where this sits in the wider workflow</h2>
+                <p>Research and build are usually separated by a copy-paste boundary, and that boundary is where accounts go quietly wrong: the keyword that never made it from the research sheet into the build, the negative list assembled from an older export, the theme that got renamed on one side but not the other.</p>
+                <p>The point of putting research on the API is not the API. It is that the research output and the build input become the same artefact. The pipeline runs: seeds agreed, tooling pulls and normalises the data, the judgement calls happen in one table, and the <a href="google-ads-api-restructure.html">restructure script</a> builds what the table says. When the account needs revisiting next quarter, the same run repeats against fresh data, and what changed is visible instead of vibes.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What this is not</h2>
+                <p>None of this replaces judgement, and it is not meant to. The tool cannot know that a high-volume theme is strategically wrong for a client, or that two themes should merge because the sales team treats them as one kind of enquiry. Every keyword decision that matters is still a human decision.</p>
+                <p>What it removes is the repetitive manual layer underneath: the settings, the exports, the reshaping, the retyping. The judgement gets applied faster, to cleaner data, the same way every time. For recurring work across many accounts and markets, that is the whole pitch, and it is enough.</p>
+            </div>
+        </section>
+        </article>
+
+        <section class="cta-section">
+            <h2>Sitting on markets you have never had time to research properly?</h2>
+            <p>I run this research as part of audits and restructures: seed lists agreed with you, output normalised into themes, negatives and build-ready structure. One-off project, written deliverables, no retainer.</p>
+            <a href="../index.html#contact" class="primary-cta">Get in Touch</a>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Praxia. Practical digital solutions.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
