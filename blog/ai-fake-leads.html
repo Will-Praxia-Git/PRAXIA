@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>AI-Generated Fake Leads: Why They Look Real and How to Stop Them | Praxia</title>
+    <meta name="description" content="Fake leads from your ad landing pages that look completely real: genuine company names, coherent enquiries, valid emails. What is behind them and how to stop them with Cloudflare Turnstile, honeypot fields, server-side URL filtering and PPC-side hygiene.">
+    <meta name="keywords" content="fake leads, form spam, ai spam leads, bot leads google ads, fake enquiries, cloudflare turnstile, honeypot field, lead form spam prevention, spam leads ppc">
+    <meta name="author" content="Praxia">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0F0620">
+    <link rel="canonical" href="https://praxia.uk/blog/ai-fake-leads.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Praxia">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://praxia.uk/blog/ai-fake-leads.html">
+    <meta property="og:title" content="AI-Generated Fake Leads: Why They Look Real and How to Stop Them">
+    <meta property="og:description" content="Enquiries with real company names, coherent messages and valid contact details, carrying a phishing link. What is behind them and the fixes that actually work.">
+    <meta property="og:image" content="https://praxia.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-07-06">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI-Generated Fake Leads: Why They Look Real and How to Stop Them">
+    <meta name="twitter:description" content="Enquiries with real company names, coherent messages and valid contact details, carrying a phishing link. What is behind them and the fixes that actually work.">
+    <meta name="twitter:image" content="https://praxia.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://praxia.uk/blog/ai-fake-leads.html#post",
+          "url": "https://praxia.uk/blog/ai-fake-leads.html",
+          "mainEntityOfPage": "https://praxia.uk/blog/ai-fake-leads.html",
+          "headline": "AI-Generated Fake Leads: Why They Look Completely Real and How to Stop Them",
+          "description": "Fake leads that look completely real: genuine company names, coherent enquiries, valid emails, and a phishing link as the payload. What is behind them and how to stop them.",
+          "inLanguage": "en-GB",
+          "datePublished": "2026-07-06",
+          "dateModified": "2026-07-06",
+          "image": "https://praxia.uk/og-image.png",
+          "author": { "@type": "Person", "name": "Will", "url": "https://praxia.uk/" },
+          "publisher": { "@id": "https://praxia.uk/#business" },
+          "isPartOf": { "@id": "https://praxia.uk/blog/#blog" },
+          "keywords": "fake leads, form spam, AI spam, bot leads, Cloudflare Turnstile, honeypot field, PPC lead quality"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praxia.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://praxia.uk/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "AI-Generated Fake Leads", "item": "https://praxia.uk/blog/ai-fake-leads.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239600ff'/%3E%3Cstop offset='100%25' stop-color='%23ff0096'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='18' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            color: #FFFFFF;
+        }
+
+        .lava-lamp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #2D1B69 0%, #0F0620 100%);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.8) 0%, rgba(255, 0, 150, 0) 70%);
+            top: -200px;
+            left: -200px;
+            animation-duration: 25s;
+        }
+
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(150, 0, 255, 0.8) 0%, rgba(150, 0, 255, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .blob3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 0, 100, 0.8) 0%, rgba(255, 0, 100, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+
+        .blob4 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 0, 255, 0.8) 0%, rgba(200, 0, 255, 0) 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(50px, -50px) scale(1.05); }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-size: 20px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover { color: #FFFFFF; }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #FFFFFF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after { width: 100%; }
+
+        .nav-cta {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px;
+            z-index: 99;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        /* Article */
+        .post-header {
+            padding: 140px 40px 50px;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .post-header h1 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .post-header h1 strong { font-weight: 600; }
+
+        .post-header .post-meta {
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 100, 200, 0.2);
+            border: 1px solid rgba(255, 100, 200, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin: 0 4px 8px;
+        }
+
+        .post-body {
+            padding: 0 40px 60px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .glass-card h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: rgba(255, 100, 200, 0.9);
+        }
+
+        .glass-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 10px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .glass-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .glass-card ul,
+        .glass-card ol {
+            padding-left: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card li {
+            margin-bottom: 8px;
+        }
+
+        .glass-card code {
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+
+        .glass-card pre {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            margin: 16px 0;
+            line-height: 1.55;
+        }
+
+        .glass-card pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight-box {
+            background: rgba(255, 100, 200, 0.1);
+            border-left: 3px solid rgba(255, 100, 200, 0.6);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover { color: #FFFFFF; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 28px;
+            font-size: 16px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-cta {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0F0620;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .primary-cta:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            padding: 30px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .navbar-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu.active { display: block; }
+
+            .post-header {
+                padding: 120px 20px 36px;
+            }
+
+            .post-header h1 { font-size: 26px; }
+
+            .post-body {
+                padding: 0 20px 40px;
+            }
+
+            .glass-card {
+                padding: 28px 22px;
+            }
+
+            .blob1 { width: 400px; height: 400px; }
+            .blob2 { width: 350px; height: 350px; }
+            .blob3 { width: 300px; height: 300px; }
+            .blob4 { width: 250px; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVS32QS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="lava-lamp">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="blob blob4"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="navbar-brand">PRAXIA</a>
+            <ul class="navbar-nav">
+                <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li><a href="../index.html#work" class="nav-link">Work</a></li>
+                <li><a href="../index.html#packages" class="nav-link">Packages</a></li>
+                <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="navbar-nav">
+            <li><a href="../index.html#services" class="nav-link" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="../index.html#work" class="nav-link" onclick="toggleMobileMenu()">Work</a></li>
+            <li><a href="../index.html#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
+            <li><a href="../index.html#faq" class="nav-link" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <article>
+        <section class="post-header">
+            <h1>AI-Generated Fake Leads: <strong>Why They Look Completely Real and How to Stop Them</strong></h1>
+            <p class="post-meta">6 July 2026 · 8 minute read · by Will</p>
+            <div class="tags">
+                <span class="tag">Lead quality</span>
+                <span class="tag">Form spam</span>
+                <span class="tag">Phishing</span>
+                <span class="tag">PPC</span>
+            </div>
+        </section>
+
+        <section class="post-body">
+            <a class="back-to-blog" href="index.html">&larr; All posts</a>
+
+            <div class="glass-card">
+                <h2>The new breed of fake lead</h2>
+                <p>If you run lead-gen campaigns, you have probably seen the old kind of form spam: gibberish names, mismatched fields, an email address that is obviously junk. Easy to spot, easy to filter.</p>
+                <p>The new kind is different. The enquiry reads like a real customer wrote it. The company name is a genuine registered business. The phone number is a valid UK format. The email passes validation. The message is coherent, on-topic for your industry, and often mentions a plausible job. The only tell, if you look closely, is a link: a "booking link", a "project brief", a "site survey document" the sender wants you to open.</p>
+                <div class="highlight-box">
+                    <p><strong>That link is the whole point.</strong> Everything else in the submission exists to get a busy salesperson to click it.</p>
+                </div>
+                <p>These started appearing in my clients' accounts in noticeable volume once cheap large language models made it trivial to generate convincing, industry-specific enquiry text at scale. They sail past every basic filter, waste sales time, and quietly poison your conversion data. This post covers what is actually going on, why the usual defences miss it, and the small set of fixes that remove most of it.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What is actually going on</h2>
+                <p>These are conversational, AI-assisted spam bots, sometimes with low-grade human operators behind them. The realistic company names are the tell: they scrape Companies House and business directories, then fill your form with legitimate-looking details wrapped around a payload.</p>
+                <p>The payload varies, but it is usually one of three plays:</p>
+                <ul>
+                    <li><strong>Phishing.</strong> The link leads to a credential harvest or malware. Sales teams that respond to every lead are the ideal audience, because clicking links from "prospects" is literally their job.</li>
+                    <li><strong>Link injection.</strong> If your form feeds a CRM or CMS, their URL is now sitting inside your systems where staff will see it, and in some setups where search engines might.</li>
+                    <li><strong>Reverse lead scams.</strong> They harvest your reply and sell it on as a "qualified enquiry" to someone in your own industry.</li>
+                </ul>
+                <p>And if you are advertising, you are a preferred target. Bots crawl Google and Microsoft ad landing pages specifically, because ad spend signals two things: you have money, and you respond to every lead that comes in.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Why your filters miss them</h2>
+                <p>Everything the classic anti-spam checks look for is absent:</p>
+                <ul>
+                    <li>No gibberish and no mismatched fields, so server-side validation passes.</li>
+                    <li>Valid-format email addresses on real domains, so format and MX checks pass.</li>
+                    <li>Submissions arrive at human-plausible speed, so naive rate limiting never triggers.</li>
+                    <li>Traffic comes through residential proxies, so IP blocklists and datacentre filters miss it.</li>
+                </ul>
+                <p>You cannot filter these on content quality, because the content is good. You have to catch the behaviour instead: the things a bot does that a human never would, and the things a human does that a bot cannot fake cheaply.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>The fixes, in order of effort against payoff</h2>
+
+                <h3>1. Cloudflare Turnstile on the form</h3>
+                <p>Turnstile is the modern, invisible alternative to reCAPTCHA: no puzzles for real users, free to use, and it verifies the browser is real before the form will submit. It is the single most effective fix for the least effort, and it is a ten-minute job for whoever manages your site. If you are already deep in Google's ecosystem, reCAPTCHA v3 is the equivalent option.</p>
+
+                <h3>2. A honeypot field, built properly</h3>
+                <p>A honeypot is a form field that real users never see but bots fill in, because bots read the raw HTML rather than rendering the page. Any submission with that field populated gets binned. It costs nothing and catches a surprising amount, but the details matter, so it gets its own section below.</p>
+
+                <h3>3. Server-side URL detection</h3>
+                <p>Flag or quarantine any submission containing a URL in the name, company or message fields. Genuine enquiries almost never paste links into a contact form. For the fake-booking-link pattern, this one check catches the payload itself, and it is a few lines of code on the server.</p>
+
+                <h3>4. Email hygiene checks</h3>
+                <p>Block disposable email domains and validate MX records server-side. This will not stop the sophisticated operations, which use real domains, but it cheaply removes the lower tier.</p>
+
+                <h3>5. Time-on-page and interaction checks</h3>
+                <p>Record when the page loaded and reject submissions completed in under a few seconds, or with no mouse or scroll activity at all. Humans take time to read and type; most bots do not bother pretending.</p>
+
+                <h3>6. Cloudflare WAF or Bot Management</h3>
+                <p>If the volume justifies it, firewall rules can challenge traffic from known bot networks and datacentre IP ranges before your landing page even loads. This is the heavier option, worth it for high-spend accounts under sustained attack rather than as a first move.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>The honeypot, done properly</h2>
+                <p>Most honeypot advice gets the details wrong, and the details are the difference between catching bots and either missing them or, worse, silently binning real customers.</p>
+
+                <h3>Naming: make the bot bite</h3>
+                <p>Bots are primed to fill fields with tempting, common names: <code>name</code>, <code>email</code>, <code>phone</code>, <code>url</code>, <code>website</code>, <code>company</code>. The easiest approach is to add a decoy with a plausible secondary name like <code>website2</code>, <code>contact_url</code> or <code>homepage</code>. Bots scanning for URL fields, exactly the ones dropping fake booking links, will fill it.</p>
+
+                <h3>Hiding it: layer the signals</h3>
+                <p>Do not use <code>type="hidden"</code>. Sophisticated bots skip hidden inputs because they know they are traps. Use a normal text field and remove it visually with CSS:</p>
+                <pre><code>&lt;div class="field-x7" aria-hidden="true"&gt;
+  &lt;label for="website2"&gt;Website&lt;/label&gt;
+  &lt;input type="text" id="website2" name="website2"
+         tabindex="-1" autocomplete="off"&gt;
+&lt;/div&gt;</code></pre>
+                <pre><code>.field-x7 {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}</code></pre>
+                <p>Each detail is doing a job:</p>
+                <ul>
+                    <li><strong>Off-screen positioning rather than <code>display: none</code>.</strong> Some bots specifically avoid fields styled with <code>display: none</code> or <code>visibility: hidden</code> because those scream honeypot. Absolute positioning off-screen is less suspicious to them and equally invisible to users.</li>
+                    <li><strong><code>tabindex="-1"</code></strong> so keyboard users never tab into it by accident.</li>
+                    <li><strong><code>autocomplete="off"</code></strong> so browser autofill does not populate it for a real user, which would bin a genuine lead.</li>
+                    <li><strong><code>aria-hidden="true"</code></strong> so screen readers skip it. This one matters: without it, a blind user fills in the field and gets silently rejected.</li>
+                    <li><strong>A neutral wrapper class.</strong> Do not call it <code>.honeypot</code> or <code>.hp-field</code>. A bot can be told to skip anything whose class mentions honey. Pick something arbitrary.</li>
+                </ul>
+
+                <h3>The server-side check</h3>
+                <p>If the decoy field comes back non-empty, reject or quarantine the submission. Do this on the server, never in JavaScript: a bot that ignores your JS sails straight through a client-side check.</p>
+
+                <h3>Do not tell the bot it failed</h3>
+                <p>Return the normal "thanks, we'll be in touch" response to flagged submissions. Show an error and the operator learns there is a trap and adapts. Silent quarantine into a junk folder is ideal; someone can eyeball it occasionally for false positives.</p>
+
+                <div class="highlight-box">
+                    <p><strong>Pair it with a timestamp.</strong> Drop a server-generated timestamp into the form when the page loads and reject anything submitted in under about three seconds. It catches the bots smart enough to leave decoy fields alone.</p>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2>The PPC side: stop paying to train on junk</h2>
+                <p>The durable fix lives on your website, but if you are running paid traffic there are two things to do in the ad accounts in parallel.</p>
+                <p><strong>Check where the fake leads are coming from.</strong> Pull the submissions and see whether they correlate with a specific campaign, network or placement. Spikes on Display, Search Partners or the Microsoft Audience Network are a common spam vector, and excluding the offending placement can cut the volume immediately.</p>
+                <p><strong>Exclude them from your conversion data.</strong> If fake submissions are firing your lead conversion, they are polluting the signal your bidding optimises on. Smart Bidding does not know the lead was fake; it just sees a conversion and goes looking for more traffic like it. Remove them, or over time your budget is actively steered toward the bots.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Where to start</h2>
+                <p>Turnstile plus a server-side URL filter is most of the fix for very little development cost. Add the honeypot and timestamp check if you want belt and braces. Then clean up the ad account side so your bidding is not learning from junk.</p>
+                <p>None of this requires new tools or a subscription. It is a few hours of developer time and some hygiene in the ad accounts, and it turns a daily drain on your sales team back into a form that mostly rings true.</p>
+            </div>
+        </section>
+        </article>
+
+        <section class="cta-section">
+            <h2>Drowning in leads that ring false?</h2>
+            <p>I audit lead quality as part of tracking and account audits: where the junk enters, what it is doing to your conversion data, and the exact changes to brief your developer with. One-off project, written report, no retainer.</p>
+            <a href="../index.html#contact" class="primary-cta">Get in Touch</a>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Praxia. Practical digital solutions.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
