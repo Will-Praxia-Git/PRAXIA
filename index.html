@@ -154,7 +154,9 @@
       ]
     }
     </script>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%239600ff'/%3E%3Cstop offset='100%25' stop-color='%23ff0096'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='system-ui' font-weight='700' font-size='18' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+    <link rel="alternate" type="application/rss+xml" title="Praxia Blog" href="https://praxia.uk/feed.xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <style>
         * {
@@ -468,6 +470,60 @@
             font-size: 14px;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.6;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 14px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255, 100, 200, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: #FFFFFF;
+            border-bottom-color: #FFFFFF;
+        }
+
+        /* From the Blog teaser strip */
+        .blog-teaser {
+            padding: 80px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .post-teaser {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .teaser-date {
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .blog-teaser-more {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .blog-teaser-more a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255, 100, 200, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .blog-teaser-more a:hover {
+            color: #FFFFFF;
+            border-bottom-color: #FFFFFF;
         }
 
         .packages {
@@ -963,7 +1019,7 @@
         }
 
         @media (max-width: 768px) {
-            .work, .how, .faq, .reporting { padding: 50px 20px; }
+            .work, .how, .faq, .reporting, .blog-teaser { padding: 50px 20px; }
             .work-grid, .how-grid { grid-template-columns: 1fr; gap: 16px; }
         }
     </style>
@@ -1035,11 +1091,13 @@
                         <div class="service-icon">🔍</div>
                         <h3>Google Ads</h3>
                         <p>Search, Shopping, Performance Max and Demand Gen. Builds, restructures and the technical fixes that move performance, including large-scale changes pushed through the Google Ads API rather than hours of manual editing.</p>
+                        <a class="service-link" href="blog/google-ads-api-restructure.html">Related: restructuring accounts via the API</a>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">📊</div>
                         <h3>Tracking, Measurement &amp; Custom Conversions</h3>
                         <p>GA4 and GTM done properly: event design, dataLayer, Consent Mode v2 and server-side tagging. Custom conversions so the platforms optimise toward qualified leads and revenue, not every button click.</p>
+                        <a class="service-link" href="blog/smart-bidding-conversion-data.html">Related: what bad conversion data does to Smart Bidding</a>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🔗</div>
@@ -1050,6 +1108,7 @@
                         <div class="service-icon">🖥️</div>
                         <h3>Landing Page Builds</h3>
                         <p>Custom, conversion-focused landing pages for your paid traffic. Fast, mobile-first and wired with GA4, GTM and conversion tracking from the first line, so every click you pay for is measured.</p>
+                        <a class="service-link" href="blog/ai-fake-leads.html">Related: stopping AI-generated fake leads at the form</a>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">🛠️</div>
@@ -1265,6 +1324,37 @@
                         <summary>Where are you based?</summary>
                         <div class="faq-answer">Manchester, working remotely with clients anywhere in the UK and beyond.</div>
                     </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-teaser" id="blog-latest">
+            <div class="section-container">
+                <h2 class="section-title">From the Blog</h2>
+                <div class="services-grid">
+                    <a class="service-card post-teaser" href="blog/smart-bidding-conversion-data.html">
+                        <div class="teaser-date">19 July 2026</div>
+                        <h3>Smart Bidding Is Only as Smart as What You Feed It</h3>
+                        <p>Spam leads, duplicate fires and vanity primaries do not just skew reports: they steer budget. The order to fix conversion data in.</p>
+                    </a>
+                    <a class="service-card post-teaser" href="blog/google-ads-api-restructure.html">
+                        <div class="teaser-date">6 July 2026</div>
+                        <h3>What Actually Breaks When You Restructure Google Ads Accounts via the API</h3>
+                        <p>Partial failure handling, MutateOperation batching and the ordering rules the tutorials skip, from real multi-market builds.</p>
+                    </a>
+                    <a class="service-card post-teaser" href="blog/keyword-planner-api.html">
+                        <div class="teaser-date">6 July 2026</div>
+                        <h3>Why I Stopped Using the Keyword Planner UI and Built My Own Tooling</h3>
+                        <p>Keyword research as one repeatable run whose output feeds restructures, negative lists and asset briefs.</p>
+                    </a>
+                    <a class="service-card post-teaser" href="blog/ai-fake-leads.html">
+                        <div class="teaser-date">6 July 2026</div>
+                        <h3>AI-Generated Fake Leads: Why They Look Real and How to Stop Them</h3>
+                        <p>The new breed of convincing form spam hitting lead-gen advertisers, and the fixes that remove most of it for very little effort.</p>
+                    </a>
+                </div>
+                <div class="blog-teaser-more">
+                    <a href="blog/">All posts</a>
                 </div>
             </div>
         </section>

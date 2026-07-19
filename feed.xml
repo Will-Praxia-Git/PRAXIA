@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Praxia Blog: Notes from the Accounts</title>
+    <link>https://praxia.uk/blog/</link>
+    <description>Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist.</description>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 19 Jul 2026 09:00:00 GMT</lastBuildDate>
+    <atom:link href="https://praxia.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Smart Bidding Is Only as Smart as What You Feed It</title>
+      <link>https://praxia.uk/blog/smart-bidding-conversion-data.html</link>
+      <guid>https://praxia.uk/blog/smart-bidding-conversion-data.html</guid>
+      <pubDate>Sun, 19 Jul 2026 09:00:00 GMT</pubDate>
+      <description>Target CPA and target ROAS treat every recorded conversion as the truth. When the Conversions column contains spam leads, duplicate fires and soft actions promoted to primary, bidding does not just misreport: it steers budget toward the junk. How each pollution distorts delivery, and the order to fix it in.</description>
+    </item>
+    <item>
+      <title>What Actually Breaks When You Restructure Google Ads Accounts via the API</title>
+      <link>https://praxia.uk/blog/google-ads-api-restructure.html</link>
+      <guid>https://praxia.uk/blog/google-ads-api-restructure.html</guid>
+      <pubDate>Mon, 06 Jul 2026 09:00:00 GMT</pubDate>
+      <description>Real restructures are thousands of operations that depend on each other, and the work lives in what the tutorials skip: partial failure handling that turns errors into a fixable list, MutateOperation batching, and the ordering rules around temporary resource IDs.</description>
+    </item>
+    <item>
+      <title>Why I Stopped Using the Keyword Planner UI and Built My Own Tooling</title>
+      <link>https://praxia.uk/blog/keyword-planner-api.html</link>
+      <guid>https://praxia.uk/blog/keyword-planner-api.html</guid>
+      <pubDate>Mon, 06 Jul 2026 09:00:00 GMT</pubDate>
+      <description>The Keyword Planner UI works for occasional research and breaks down across many accounts and markets. How querying the API directly turns keyword research into one repeatable run whose output feeds restructures, negative lists and asset briefs.</description>
+    </item>
+    <item>
+      <title>AI-Generated Fake Leads: Why They Look Completely Real and How to Stop Them</title>
+      <link>https://praxia.uk/blog/ai-fake-leads.html</link>
+      <guid>https://praxia.uk/blog/ai-fake-leads.html</guid>
+      <pubDate>Mon, 06 Jul 2026 09:00:00 GMT</pubDate>
+      <description>A new breed of form spam is hitting lead-gen advertisers: enquiries with real company names, coherent messages and valid contact details, carrying a phishing link as the payload. Why filters miss them and the fixes that remove most of it for very little effort.</description>
+    </item>
+  </channel>
+</rss>
