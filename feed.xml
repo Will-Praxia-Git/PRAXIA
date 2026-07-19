@@ -5,8 +5,15 @@
     <link>https://praxia.uk/blog/</link>
     <description>Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 19 Jul 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 16:00:00 GMT</lastBuildDate>
     <atom:link href="https://praxia.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>What a GTM Consultant Actually Fixes</title>
+      <link>https://praxia.uk/blog/gtm-consultant.html</link>
+      <guid>https://praxia.uk/blog/gtm-consultant.html</guid>
+      <pubDate>Sun, 19 Jul 2026 16:00:00 GMT</pubDate>
+      <description>The problems a GTM consultant keeps fixing: enhanced conversions data stranded on the wrong page, AJAX forms that defeat submit triggers, Consent Mode loops, a CMP blocking the whole container, and when to move measurement server-side.</description>
+    </item>
     <item>
       <title>Smart Bidding Is Only as Smart as What You Feed It</title>
       <link>https://praxia.uk/blog/smart-bidding-conversion-data.html</link>
