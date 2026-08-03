@@ -5,8 +5,15 @@
     <link>https://praxia.uk/blog/</link>
     <description>Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 19 Jul 2026 16:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://praxia.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Your Conversion Count Is the Number Least Likely to Be Questioned</title>
+      <link>https://praxia.uk/blog/conversion-count-lies.html</link>
+      <guid>https://praxia.uk/blog/conversion-count-lies.html</guid>
+      <pubDate>Mon, 03 Aug 2026 09:00:00 GMT</pubDate>
+      <description>An account recorded 17,359 conversions in the time the business took roughly 4,500 bookings, and nobody ever asked, because high numbers go in the deck and low numbers get audited. How conversion counts drift from reality, what automated bidding does with a broken signal, and how to verify the pipeline with a real transaction.</description>
+    </item>
     <item>
       <title>What a GTM Consultant Actually Fixes</title>
       <link>https://praxia.uk/blog/gtm-consultant.html</link>

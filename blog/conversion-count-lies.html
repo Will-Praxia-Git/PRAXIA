@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Your Conversion Count Is the Number Least Likely to Be Questioned | Praxia</title>
+    <meta name="description" content="Broken conversion tracking survives for years because inflated numbers never get questioned. How conversion counts drift from reality, what automated bidding does with a broken signal, and how to verify the pipeline with a real transaction.">
+    <meta name="keywords" content="conversion tracking audit, broken conversion tracking, google ads conversion count wrong, checkout conversion tracking, verify conversion tracking, value based bidding, conversion tracking mistakes, url contains conversion action">
+    <meta name="author" content="Praxia">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0F0620">
+    <link rel="canonical" href="https://praxia.uk/blog/conversion-count-lies.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Praxia">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://praxia.uk/blog/conversion-count-lies.html">
+    <meta property="og:title" content="Your Conversion Count Is the Number Least Likely to Be Questioned">
+    <meta property="og:description" content="An account recorded 17,359 conversions while the business took 4,500 bookings, and nobody asked. Why inflated counts survive, and how to verify the pipeline with a real transaction.">
+    <meta property="og:image" content="https://praxia.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-08-03">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Your Conversion Count Is the Number Least Likely to Be Questioned">
+    <meta name="twitter:description" content="An account recorded 17,359 conversions while the business took 4,500 bookings, and nobody asked. Why inflated counts survive, and how to verify the pipeline with a real transaction.">
+    <meta name="twitter:image" content="https://praxia.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          "@id": "https://praxia.uk/blog/conversion-count-lies.html#post",
+          "url": "https://praxia.uk/blog/conversion-count-lies.html",
+          "mainEntityOfPage": "https://praxia.uk/blog/conversion-count-lies.html",
+          "headline": "Your Conversion Count Is the Number Least Likely to Be Questioned",
+          "description": "Broken conversion tracking survives for years because inflated numbers never get questioned. How conversion counts drift from reality, what automated bidding does with a broken signal, and how to verify the pipeline with a real transaction.",
+          "inLanguage": "en-GB",
+          "datePublished": "2026-08-03",
+          "dateModified": "2026-08-03",
+          "image": "https://praxia.uk/og-image.png",
+          "author": { "@type": "Organization", "name": "Praxia", "url": "https://praxia.uk/" },
+          "publisher": { "@id": "https://praxia.uk/#business" },
+          "isPartOf": { "@id": "https://praxia.uk/blog/#blog" },
+          "keywords": "Conversion tracking, checkout tracking, Smart Bidding, conversion audit, value-based bidding"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praxia.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://praxia.uk/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Your Conversion Count Is the Number Least Likely to Be Questioned", "item": "https://praxia.uk/blog/conversion-count-lies.html" }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+    <link rel="alternate" type="application/rss+xml" title="Praxia Blog" href="https://praxia.uk/feed.xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            color: #FFFFFF;
+        }
+
+        .lava-lamp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #2D1B69 0%, #0F0620 100%);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.8) 0%, rgba(255, 0, 150, 0) 70%);
+            top: -200px;
+            left: -200px;
+            animation-duration: 25s;
+        }
+
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(150, 0, 255, 0.8) 0%, rgba(150, 0, 255, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .blob3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 0, 100, 0.8) 0%, rgba(255, 0, 100, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+
+        .blob4 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 0, 255, 0.8) 0%, rgba(200, 0, 255, 0) 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(50px, -50px) scale(1.05); }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-size: 20px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover { color: #FFFFFF; }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #FFFFFF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after { width: 100%; }
+
+        .nav-cta {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px;
+            z-index: 99;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        /* Article */
+        .post-header {
+            padding: 140px 40px 50px;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .post-header h1 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .post-header h1 strong { font-weight: 600; }
+
+        .post-header .post-meta {
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 100, 200, 0.2);
+            border: 1px solid rgba(255, 100, 200, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin: 0 4px 8px;
+        }
+
+        .post-body {
+            padding: 0 40px 60px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .glass-card h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: rgba(255, 100, 200, 0.9);
+        }
+
+        .glass-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 10px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .glass-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .glass-card a {
+            color: rgba(255, 140, 210, 0.95);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .glass-card a:hover { color: #FFFFFF; }
+
+        .glass-card ul,
+        .glass-card ol {
+            padding-left: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card li {
+            margin-bottom: 8px;
+        }
+
+        .glass-card code {
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+
+        .glass-card pre {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            margin: 16px 0;
+            line-height: 1.55;
+        }
+
+        .glass-card pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight-box {
+            background: rgba(255, 100, 200, 0.1);
+            border-left: 3px solid rgba(255, 100, 200, 0.6);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover { color: #FFFFFF; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 28px;
+            font-size: 16px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-cta {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0F0620;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .primary-cta:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            padding: 30px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .navbar-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu.active { display: block; }
+
+            .post-header {
+                padding: 120px 20px 36px;
+            }
+
+            .post-header h1 { font-size: 26px; }
+
+            .post-body {
+                padding: 0 20px 40px;
+            }
+
+            .glass-card {
+                padding: 28px 22px;
+            }
+
+            .blob1 { width: 400px; height: 400px; }
+            .blob2 { width: 350px; height: 350px; }
+            .blob3 { width: 300px; height: 300px; }
+            .blob4 { width: 250px; height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVS32QS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="lava-lamp">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="blob blob4"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="navbar-brand">PRAXIA</a>
+            <ul class="navbar-nav">
+                <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li><a href="../index.html#work" class="nav-link">Work</a></li>
+                <li><a href="../index.html#packages" class="nav-link">Packages</a></li>
+                <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="navbar-nav">
+            <li><a href="../index.html#services" class="nav-link" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="../index.html#work" class="nav-link" onclick="toggleMobileMenu()">Work</a></li>
+            <li><a href="../index.html#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
+            <li><a href="../index.html#faq" class="nav-link" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <article>
+        <section class="post-header">
+            <h1>Your Conversion Count Is the Number <strong>Least Likely to Be Questioned</strong></h1>
+            <p class="post-meta">3 August 2026 · 6 minute read · by Praxia</p>
+            <div class="tags">
+                <span class="tag">Conversion tracking</span>
+                <span class="tag">Checkout tracking</span>
+                <span class="tag">Smart Bidding</span>
+                <span class="tag">PPC</span>
+            </div>
+        </section>
+
+        <section class="post-body">
+            <a class="back-to-blog" href="index.html">&larr; All posts</a>
+
+            <div class="glass-card">
+                <h2>Why broken tracking survives for years</h2>
+                <p>A low number gets investigated. Somebody asks why leads are down, somebody checks the tags, somebody finds the problem. Bad news has a way of prompting its own audit.</p>
+                <p>A high number gets reported. It goes in the deck. Nobody asks whether the 61% conversion rate is real, because a 61% conversion rate is not a problem, and problems are what get looked at.</p>
+                <p>This is why broken conversion tracking survives for years. Not because it is hard to detect, but because the direction of the error determines whether anyone looks.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>The specific way it usually breaks</h2>
+                <p>I audited an account recently that had recorded 17,359 conversions across nearly four years. The business had taken roughly 4,500 bookings in that time. The full rebuild is written up as a <a href="../checkout-tracking.html">checkout tracking case study</a>; this post is about the pattern, because the pattern is everywhere.</p>
+                <p>The cause was a single configuration choice made years earlier: a conversion action set to fire on any URL containing the string <code>contact</code>. That matched the contact page. Every visitor to it counted as an enquiry.</p>
+                <p>That is the most common version, and it is worth being specific about the variants, because they all share the same shape:</p>
+                <ul>
+                    <li>A URL-contains rule matching a substring that appears in normal navigation. <code>contact</code>, <code>thank</code>, <code>book</code>, <code>checkout</code>, <code>success</code></li>
+                    <li>A conversion firing on a page load rather than an action, so refreshes and back-button navigation count again</li>
+                    <li>A tag on a confirmation page reachable without transacting</li>
+                    <li>A goal imported from analytics that measures engagement rather than a purchase</li>
+                </ul>
+                <p>None of these throw an error. All of them produce numbers that look plausible in a report.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Automated bidding turns a measurement problem into a spending problem</h2>
+                <p>If tracking were only a reporting concern, a broken conversion action would mean bad slides. Annoying, survivable.</p>
+                <p>But nearly every account now runs some form of automated bidding, and automated bidding consumes the conversion signal directly. It is not reading your report. It is optimising against the thing you told it to optimise against, continuously, on every auction. I have written before about <a href="smart-bidding-conversion-data.html">what polluted conversion data does to Smart Bidding</a>; this is the extreme case, where the signal was never connected to the business at all.</p>
+                <p>The account above was set to maximise conversion value. The values were attached to page views. So the system had spent two years learning which searches, times of day, devices and audiences produced the most contact-page visits, and buying more of them.</p>
+                <p>It worked. That is the uncomfortable part. The bid strategy was not malfunctioning. It hit its target with reasonable efficiency. The target was wrong.</p>
+                <div class="highlight-box">
+                    <p><strong>Value-based bidding with unreliable values is not a partially working system.</strong> It is a system optimising a random variable. If you are not confident that your conversion values reflect real money, switch to conversion-count bidding until you are. Fewer inputs, fewer ways to be confidently wrong.</p>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2>Silent failure is the one that gets you</h2>
+                <p>Two defects turned up during that rebuild that neither the client nor I could see from the front end.</p>
+                <p>The session identifier was being parsed wrong, so events arrived unattached to any session. And consent flags were hardcoded to denied, so events were transmitted and then discarded on receipt.</p>
+                <p>No console error. No failed request. No alert. From the browser everything looked correct: the checkout worked, the confirmation page rendered, the tag fired.</p>
+                <p>Systems that fail loudly get fixed within the hour. Systems that fail quietly get budget for two years.</p>
+                <p>That asymmetry is worth designing around. When you build tracking, build the check that proves the value arrived, not just the check that proves the tag fired.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>How to actually verify it</h2>
+                <p>Debug tools tell you a tag fired. That is the first hop of four or five. What you want to know is whether the value arrived, matched, and got attributed.</p>
+                <p>The only reliable method is to follow a real transaction end to end.</p>
+                <ol>
+                    <li><strong>Put a genuine transaction through</strong>, with a real payment. Not a test-mode order, not a simulated event. Test modes take different code paths and that is exactly where these defects live.</li>
+                    <li><strong>Check each hop</strong>, not just the endpoints. Did the event leave with a valid session identifier? Did consent flags allow it? Did the receiving system return a success response? Did it show up in the reporting interface?</li>
+                    <li><strong>Compare the value to the source of truth.</strong> Not roughly. To the penny. Your booking system or order table has the real figure. If the advertising platform disagrees, something is transforming it in between and you want to know what.</li>
+                    <li><strong>Wait for a natural conversion</strong>, from a genuine click, and trace that one too. A manual test proves the pipe works. A real customer proves it works under the conditions customers actually create.</li>
+                </ol>
+                <p>That last one paid off in this case: it confirmed the platform had backfilled a conversion that occurred before the import was configured, which is useful behaviour to know about and is not something you would discover by reasoning about it.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>The check that costs two minutes</h2>
+                <p>Before anything else, open your conversion actions and look at the trigger condition. Not the name of the action, which reflects what somebody intended. The rule that fires it.</p>
+                <p>Then compare your platform's conversion count against a number from outside the platform. Invoices raised. Bookings taken. Rows in the orders table.</p>
+                <p>If those disagree by more than a rounding error, your reporting is not describing your business, and every automated decision the platform has made has been made against a number you did not intend.</p>
+                <p>In the account above, the ratio was almost four to one. Six months of reporting showed 177 conversions while the business took 512 bookings. Both numbers were wrong in different directions, for different reasons, which is what happens when nobody has ever compared them.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What you get back</h2>
+                <p>The rebuild in that case did not improve short-term performance. Worth saying plainly, because the honest outcome of fixing measurement is usually not a chart going up.</p>
+                <p>What it produced was a first accurate cost per booking, an average order value nobody in the business had to hand, and the discovery that advertising was running at 18.3% of revenue. Comfortable, and profitable the whole time. But unknowable beforehand, and every decision taken in those two years had been taken blind.</p>
+                <p>It also settled arguments that no amount of discussion would have resolved. Which product they actually sell, established by a median booking length of 15 days rather than by opinion. Which searches were wasting money, established by matching search terms against booking behaviour. Which language performs, established by comparing the terms that describe the business honestly against the terms with more volume. The honest description won on both cost and conversion.</p>
+                <p>None of that is available to an account that cannot count a sale.</p>
+            </div>
+        </section>
+        </article>
+
+        <section class="cta-section">
+            <h2>Does your conversion count match your invoices?</h2>
+            <p>I work on conversion tracking and measurement for businesses running paid search: checkout and purchase tracking with real values, verified end to end against live transactions. If your conversion count and your invoices disagree, that is the thing to fix first. One-off project, written handover, no retainer.</p>
+            <a href="../index.html#contact" class="primary-cta">Get in Touch</a>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Praxia. Practical digital solutions.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
