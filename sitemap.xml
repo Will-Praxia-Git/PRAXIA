@@ -26,9 +26,21 @@
   </url>
   <url>
     <loc>https://praxia.uk/blog/</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://praxia.uk/blog/ga4-session-cookie-gs2.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://praxia.uk/blog/ads-ga4-import-backfill.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://praxia.uk/blog/conversion-count-lies.html</loc>

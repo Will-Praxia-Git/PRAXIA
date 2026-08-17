@@ -5,8 +5,22 @@
     <link>https://praxia.uk/blog/</link>
     <description>Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist.</description>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 03 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://praxia.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The _ga_ Cookie Is Now GS2 Format, and Index 2 Is Not the Session ID</title>
+      <link>https://praxia.uk/blog/ga4-session-cookie-gs2.html</link>
+      <guid>https://praxia.uk/blog/ga4-session-cookie-gs2.html</guid>
+      <pubDate>Mon, 17 Aug 2026 09:00:00 GMT</pubDate>
+      <description>The GA4 session cookie moved to the GS2 format, and the common split-on-full-stop parser now returns a fragment instead of a session ID, silently. The old shape, the new shape, a parser that fails loudly, and two more silent parsing failures from the same family.</description>
+    </item>
+    <item>
+      <title>Does Google Ads Backfill a GA4 Conversion Imported After the Click? In One Test, Yes</title>
+      <link>https://praxia.uk/blog/ads-ga4-import-backfill.html</link>
+      <guid>https://praxia.uk/blog/ads-ga4-import-backfill.html</guid>
+      <pubDate>Mon, 17 Aug 2026 09:30:00 GMT</pubDate>
+      <description>A booking happened before the GA4 key event was imported into Google Ads. It still landed against the new conversion action, value intact. One reproduced case, plus the conversion action trap found on the way: purchase tracking that was really a thank-you page proxy.</description>
+    </item>
     <item>
       <title>Your Conversion Count Is the Number Least Likely to Be Questioned</title>
       <link>https://praxia.uk/blog/conversion-count-lies.html</link>

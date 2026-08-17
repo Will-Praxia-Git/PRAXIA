@@ -46,6 +46,8 @@
           "publisher": { "@id": "https://praxia.uk/#business" },
           "isPartOf": { "@id": "https://praxia.uk/#website" },
           "blogPost": [
+            { "@id": "https://praxia.uk/blog/ga4-session-cookie-gs2.html#post" },
+            { "@id": "https://praxia.uk/blog/ads-ga4-import-backfill.html#post" },
             { "@id": "https://praxia.uk/blog/conversion-count-lies.html#post" },
             { "@id": "https://praxia.uk/blog/gtm-consultant.html#post" },
             { "@id": "https://praxia.uk/blog/smart-bidding-conversion-data.html#post" },
@@ -456,6 +458,30 @@
         </section>
 
         <section class="blog-list">
+            <a class="post-card" href="ga4-session-cookie-gs2.html">
+                <div class="post-meta">17 August 2026 · 5 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">GA4</span>
+                    <span class="post-tag">Conversion tracking</span>
+                    <span class="post-tag">Debugging</span>
+                </div>
+                <h2>The _ga_ Cookie Is Now GS2 Format, and Index 2 Is Not the Session ID</h2>
+                <p>The GA4 session cookie moved to a new format, and the common parsing pattern, split on a full stop and take the third element, now returns a fragment instead of a session ID. No exception, no warning, just a wrong value flowing into payloads and join keys. The old shape, the new shape, a parser that fails loudly, and two more silent parsing failures from the same family.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
+            <a class="post-card" href="ads-ga4-import-backfill.html">
+                <div class="post-meta">17 August 2026 · 6 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">Google Ads</span>
+                    <span class="post-tag">GA4</span>
+                    <span class="post-tag">Conversion tracking</span>
+                </div>
+                <h2>Does Google Ads Backfill a GA4 Conversion Imported After the Click? In One Test, Yes</h2>
+                <p>A booking came through from a paid click before the GA4 purchase key event was imported into Google Ads. It still landed against the new conversion action, value intact. One reproduced case, stated as one case, plus the trap found on the way: a conversion action named like purchase tracking that was really a thank-you page view proxy.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
             <a class="post-card" href="conversion-count-lies.html">
                 <div class="post-meta">3 August 2026 · 6 minute read</div>
                 <div class="post-tags">
