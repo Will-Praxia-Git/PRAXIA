@@ -46,6 +46,8 @@
           "publisher": { "@id": "https://praxia.uk/#business" },
           "isPartOf": { "@id": "https://praxia.uk/#website" },
           "blogPost": [
+            { "@id": "https://praxia.uk/blog/google-ads-python-proto-plus.html#post" },
+            { "@id": "https://praxia.uk/blog/gaql-row-multiplication.html#post" },
             { "@id": "https://praxia.uk/blog/ga4-session-cookie-gs2.html#post" },
             { "@id": "https://praxia.uk/blog/ads-ga4-import-backfill.html#post" },
             { "@id": "https://praxia.uk/blog/conversion-count-lies.html#post" },
@@ -458,6 +460,30 @@
         </section>
 
         <section class="blog-list">
+            <a class="post-card" href="google-ads-python-proto-plus.html">
+                <div class="post-meta">22 August 2026 · 5 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">Google Ads API</span>
+                    <span class="post-tag">Python</span>
+                    <span class="post-tag">Debugging</span>
+                </div>
+                <h2>Proto-Plus, Not Protobuf: Four Errors That Eat a Morning of Google Ads API Work</h2>
+                <p>The google-ads Python client wraps protobuf in a layer called proto-plus, and most of the answers a search surfaces were written for raw protobuf. They look right and fail at runtime. Repeated fields with no .add(), the FieldMask the client refuses to hand you, enum names that drift between versions, and the read/write asymmetry that empties copied ads.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
+            <a class="post-card" href="gaql-row-multiplication.html">
+                <div class="post-meta">22 August 2026 · 6 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">Google Ads API</span>
+                    <span class="post-tag">GAQL</span>
+                    <span class="post-tag">Reporting</span>
+                </div>
+                <h2>GAQL Looks Like SQL, and That Is the Problem</h2>
+                <p>GAQL borrows SQL's shape closely enough that people write it from SQL instincts, and the divergences are silent: the query succeeds and returns something plausible. Segments that multiply your rows with no GROUP BY to collapse them, view resources that demand filter fields in the SELECT, and a segment compatibility matrix where SQL would have a schema.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
             <a class="post-card" href="ga4-session-cookie-gs2.html">
                 <div class="post-meta">17 August 2026 · 5 minute read</div>
                 <div class="post-tags">

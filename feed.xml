@@ -5,8 +5,22 @@
     <link>https://praxia.uk/blog/</link>
     <description>Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist.</description>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 17 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://praxia.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Proto-Plus, Not Protobuf: Four Errors That Eat a Morning of Google Ads API Work</title>
+      <link>https://praxia.uk/blog/google-ads-python-proto-plus.html</link>
+      <guid>https://praxia.uk/blog/google-ads-python-proto-plus.html</guid>
+      <pubDate>Sat, 22 Aug 2026 09:00:00 GMT</pubDate>
+      <description>The google-ads Python client wraps protobuf in proto-plus, and most answers online were written for raw protobuf. They look right and fail at runtime: repeated fields with no .add(), the FieldMask the client refuses to hand you, enum names that drift between versions, and the read/write asymmetry that empties copied ads.</description>
+    </item>
+    <item>
+      <title>GAQL Looks Like SQL, and That Is the Problem</title>
+      <link>https://praxia.uk/blog/gaql-row-multiplication.html</link>
+      <guid>https://praxia.uk/blog/gaql-row-multiplication.html</guid>
+      <pubDate>Sat, 22 Aug 2026 09:30:00 GMT</pubDate>
+      <description>GAQL borrows SQL's shape closely enough that people write it from SQL instincts, and the divergences are silent: segments that multiply your rows with no GROUP BY to collapse them, view resources that demand filter fields in the SELECT, and a compatibility matrix where SQL would have a schema.</description>
+    </item>
     <item>
       <title>The _ga_ Cookie Is Now GS2 Format, and Index 2 Is Not the Session ID</title>
       <link>https://praxia.uk/blog/ga4-session-cookie-gs2.html</link>
