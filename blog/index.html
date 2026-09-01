@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Blog: PPC, Tracking &amp; Lead Quality | Praxia</title>
-    <meta name="description" content="Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist. No fluff, just what actually works in accounts.">
+    <meta name="description" content="Practical writing on PPC, conversion tracking, reporting automation and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist based in Manchester. No fluff, just what actually works in accounts.">
     <meta name="author" content="Praxia">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#0F0620">
@@ -46,6 +46,7 @@
           "publisher": { "@id": "https://praxia.uk/#business" },
           "isPartOf": { "@id": "https://praxia.uk/#website" },
           "blogPost": [
+            { "@id": "https://praxia.uk/blog/automating-daily-reports.html#post" },
             { "@id": "https://praxia.uk/blog/google-ads-python-proto-plus.html#post" },
             { "@id": "https://praxia.uk/blog/gaql-row-multiplication.html#post" },
             { "@id": "https://praxia.uk/blog/ga4-session-cookie-gs2.html#post" },
@@ -415,6 +416,10 @@
             .blob3 { width: 300px; height: 300px; }
             .blob4 { width: 250px; height: 250px; }
         }
+        @media (prefers-reduced-motion: reduce) {
+            .blob { animation: none; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; }
+        }
     </style>
 </head>
 <body>
@@ -435,10 +440,11 @@
                 <li><a href="../index.html#work" class="nav-link">Work</a></li>
                 <li><a href="../index.html#packages" class="nav-link">Packages</a></li>
                 <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="../reporting-automation.html" class="nav-link">Reporting</a></li>
                 <li><a href="index.html" class="nav-link">Blog</a></li>
                 <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
             </ul>
-            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
         </div>
     </nav>
 
@@ -448,6 +454,7 @@
             <li><a href="../index.html#work" class="nav-link" onclick="toggleMobileMenu()">Work</a></li>
             <li><a href="../index.html#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
             <li><a href="../index.html#faq" class="nav-link" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="../reporting-automation.html" class="nav-link" onclick="toggleMobileMenu()">Reporting</a></li>
             <li><a href="index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a></li>
             <li><a href="../index.html#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
         </ul>
@@ -460,6 +467,18 @@
         </section>
 
         <section class="blog-list">
+            <a class="post-card" href="automating-daily-reports.html">
+                <div class="post-meta">1 September 2026 · 6 minute read</div>
+                <div class="post-tags">
+                    <span class="post-tag">Reporting automation</span>
+                    <span class="post-tag">Competitor monitoring</span>
+                    <span class="post-tag">Data pipelines</span>
+                </div>
+                <h2>Automating a Daily Report: The Scraping Is the Easy Part</h2>
+                <p>A product team typed ten ranked tables of competitor rates from four comparison platforms every morning. The brief to automate it looked like one scraping job and was really four collection problems, a licence boundary that should be documented rather than engineered around, a normalisation job where the real value lived, and a report that has to be able to say, in its subject line, when it is stale.</p>
+                <span class="post-read">Read the post</span>
+            </a>
+
             <a class="post-card" href="google-ads-python-proto-plus.html">
                 <div class="post-meta">22 August 2026 · 5 minute read</div>
                 <div class="post-tags">

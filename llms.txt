@@ -1,0 +1,31 @@
+# Praxia
+
+> Freelance PPC consultant and measurement specialist based in Manchester, UK, working with B2B and lead-generation businesses across the UK. One-off, fixed-price projects. No retainers, no agency markup. Contact: info@praxia.uk
+
+## What I do
+
+- Microsoft Ads for B2B: full account builds, LinkedIn profile targeting, UET tracking, offline conversion import
+- Google Ads: builds, restructures, technical fixes, large-scale changes through the Google Ads API
+- Conversion tracking and measurement: GA4, Google Tag Manager, Consent Mode v2, server-side tagging, checkout and purchase tracking with real order values, custom conversions
+- Offline conversion pipelines: GCLID and MSCLKID capture into the CRM, import back to Google and Microsoft
+- Marketing data and reporting automation: scheduled collection from ad platforms, GA4, CRMs and public web sources, normalised into the report a team already reads, with per-source health checks and stale-data warnings; competitor rate and price monitoring
+- PPC audits and diagnostics with a prioritised written report
+- Conversion-focused landing page builds
+
+## Pages
+
+- [Home](https://praxia.uk/): services, packages and prices, FAQ, contact
+- [Marketing Data & Reporting Automation](https://praxia.uk/reporting-automation.html): what gets automated, how every build is done, what it does not do
+- [Case study: automating a daily competitor rate report](https://praxia.uk/competitor-rate-monitoring.html): UK savings provider, four comparison platforms, ten ranked tables emailed daily
+- [Case study: checkout conversion tracking rebuild](https://praxia.uk/checkout-tracking.html): airport parking operator, 17,359 recorded conversions against roughly 4,500 real bookings
+- [Case study: Microsoft Ads for B2B](https://praxia.uk/msads.html): HVAC company, 5x ROAS in a quarter
+- [Case study: GA4 conversion tracking](https://praxia.uk/casestudyga4.html): education provider, two properties
+- [Blog](https://praxia.uk/blog/): practical writing on PPC, conversion tracking, Google Ads API tooling and reporting automation
+- [RSS feed](https://praxia.uk/feed.xml)
+
+## Facts
+
+- Based in Manchester, England. Works remotely with clients anywhere in the UK.
+- Solo practitioner: the person you speak to is the person who does the work.
+- Does not offer monthly PPC management retainers.
+- Every project ends with documentation the client owns.

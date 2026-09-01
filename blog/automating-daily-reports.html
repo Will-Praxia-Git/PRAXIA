@@ -11,27 +11,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Does Google Ads Backfill a GA4 Conversion Imported After the Click? In One Test, Yes | Praxia</title>
-    <meta name="description" content="A booking happened before the GA4 key event was imported into Google Ads. Did the conversion arrive against the new action, or was it lost? One reproduced test, one clear answer, and a conversion action trap worth more than the answer.">
-    <meta name="keywords" content="google ads import ga4 conversion backfill, does google ads backfill imported conversions, ga4 key event import google ads, google ads primary vs secondary conversion action, google ads conversion action thank you page url, stale conversion action">
+    <title>Automating a Daily Report: The Scraping Is the Easy Part | Praxia</title>
+    <meta name="description" content="Replacing a manual morning report with an automated pipeline: why a brief that says scraping is really four collection problems, where the licence boundary sits, why normalisation is the real work, and why any report that cannot tell you it is stale is worse than no report at all.">
+    <meta name="keywords" content="automate daily report, marketing reporting automation, automated competitor report, competitor rate monitoring, report automation pipeline, stale data reporting, self-monitoring report, web data collection normalisation, marketing data automation">
     <meta name="author" content="Praxia">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#0F0620">
-    <link rel="canonical" href="https://praxia.uk/blog/ads-ga4-import-backfill.html">
+    <link rel="canonical" href="https://praxia.uk/blog/automating-daily-reports.html">
 
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Praxia">
     <meta property="og:locale" content="en_GB">
-    <meta property="og:url" content="https://praxia.uk/blog/ads-ga4-import-backfill.html">
-    <meta property="og:title" content="Does Google Ads Backfill a GA4 Conversion Imported After the Click? In One Test, Yes">
-    <meta property="og:description" content="A booking happened before the GA4 key event was imported into Google Ads. It still landed against the new conversion action, value intact. One reproduced test, plus the conversion action trap found on the way.">
+    <meta property="og:url" content="https://praxia.uk/blog/automating-daily-reports.html">
+    <meta property="og:title" content="Automating a Daily Report: The Scraping Is the Easy Part">
+    <meta property="og:description" content="A brief that says scraping is really four collection problems, a licence boundary, a normalisation job, and a report that has to be able to say when it is stale.">
     <meta property="og:image" content="https://praxia.uk/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="article:published_time" content="2026-08-17">
+    <meta property="article:published_time" content="2026-09-01">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Does Google Ads Backfill a GA4 Conversion Imported After the Click? In One Test, Yes">
-    <meta name="twitter:description" content="A booking happened before the GA4 key event was imported into Google Ads. It still landed against the new conversion action, value intact. One reproduced test, plus the conversion action trap found on the way.">
+    <meta name="twitter:title" content="Automating a Daily Report: The Scraping Is the Easy Part">
+    <meta name="twitter:description" content="A brief that says scraping is really four collection problems, a licence boundary, a normalisation job, and a report that has to be able to say when it is stale.">
     <meta name="twitter:image" content="https://praxia.uk/og-image.png">
 
     <script type="application/ld+json">
@@ -40,26 +40,26 @@
       "@graph": [
         {
           "@type": "BlogPosting",
-          "@id": "https://praxia.uk/blog/ads-ga4-import-backfill.html#post",
-          "url": "https://praxia.uk/blog/ads-ga4-import-backfill.html",
-          "mainEntityOfPage": "https://praxia.uk/blog/ads-ga4-import-backfill.html",
-          "headline": "Does Google Ads Backfill a GA4 Conversion Imported After the Click? In One Test, Yes",
-          "description": "A booking happened before the GA4 key event was imported into Google Ads. It still landed against the new conversion action, value intact. One reproduced test, plus the conversion action trap found on the way.",
+          "@id": "https://praxia.uk/blog/automating-daily-reports.html#post",
+          "url": "https://praxia.uk/blog/automating-daily-reports.html",
+          "mainEntityOfPage": "https://praxia.uk/blog/automating-daily-reports.html",
+          "headline": "Automating a Daily Report: The Scraping Is the Easy Part",
+          "description": "Replacing a manual morning report with an automated pipeline: four collection problems in one brief, the licence boundary, normalisation as the real work, and why a report has to be able to say when it is stale.",
           "inLanguage": "en-GB",
-          "datePublished": "2026-08-17",
-          "dateModified": "2026-08-17",
+          "datePublished": "2026-09-01",
+          "dateModified": "2026-09-01",
           "image": "https://praxia.uk/og-image.png",
           "author": { "@type": "Organization", "name": "Praxia", "url": "https://praxia.uk/" },
           "publisher": { "@id": "https://praxia.uk/#business" },
           "isPartOf": { "@id": "https://praxia.uk/blog/#blog" },
-          "keywords": "Google Ads, GA4 key event import, conversion backfill, primary and secondary conversion actions, thank-you page proxy"
+          "keywords": "reporting automation, competitor monitoring, data pipelines, web data collection, normalisation, stale data"
         },
         {
           "@type": "BreadcrumbList",
           "itemListElement": [
             { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praxia.uk/" },
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://praxia.uk/blog/" },
-            { "@type": "ListItem", "position": 3, "name": "Does Google Ads Backfill a GA4 Conversion Imported After the Click?", "item": "https://praxia.uk/blog/ads-ga4-import-backfill.html" }
+            { "@type": "ListItem", "position": 3, "name": "Automating a Daily Report", "item": "https://praxia.uk/blog/automating-daily-reports.html" }
           ]
         }
       ]
@@ -553,13 +553,12 @@
     <div class="main-content">
         <article>
         <section class="post-header">
-            <h1>Does Google Ads Backfill a GA4 Conversion Imported After the Click? <strong>In One Test, Yes</strong></h1>
-            <p class="post-meta">17 August 2026 · 6 minute read · by Praxia</p>
+            <h1>Automating a Daily Report: <strong>The Scraping Is the Easy Part</strong></h1>
+            <p class="post-meta">1 September 2026 · 6 minute read · by Praxia</p>
             <div class="tags">
-                <span class="tag">Google Ads</span>
-                <span class="tag">GA4</span>
-                <span class="tag">Conversion tracking</span>
-                <span class="tag">Imports</span>
+                <span class="tag">Reporting automation</span>
+                <span class="tag">Competitor monitoring</span>
+                <span class="tag">Data pipelines</span>
             </div>
         </section>
 
@@ -567,74 +566,62 @@
             <a class="back-to-blog" href="index.html">&larr; All posts</a>
 
             <div class="glass-card">
-                <h2>The question</h2>
-                <p>On a recent project, a booking site on WordPress, the Google Ads account had a stale purchase conversion action and the GA4 property had a working purchase key event. The plan was simple: delete the stale Ads action and import the GA4 key event in its place.</p>
-                <p>Between fixing the tracking and creating the import, a booking came through from a paid click. So: does that booking ever arrive in Google Ads against the new conversion action, or is it gone?</p>
-                <p>This is a decision, not a curiosity. Anyone who has inherited a broken or stale conversion setup faces the same fork: fix it now, mid-month, mid-flight, or wait for a clean start date on the assumption that everything in the gap is lost. The assumption is the load-bearing part, and I could not find it addressed clearly anywhere. Here is what happened in the one case I can report, stated as one case throughout.</p>
+                <h2>The brief said scraping</h2>
+                <p>A product team at a UK savings provider needed a daily view of competitor rates. Their market is priced against a handful of savings marketplaces, and if a rival moves a headline rate, the commercial response is measured in days. So every working day someone opened around a dozen pages across four comparison platforms, read off the best rates for each term, and typed them into ten ranked tables: easy access, six fixed terms, then the same again for cash ISAs.</p>
+                <p>The request was to automate that. Written down, it looks like one job: fetch some pages, pull some numbers out, send an email. That framing is where most reporting automation projects go wrong, because the scraping turned out to be the smallest part of the work. The full client story is on the <a href="../competitor-rate-monitoring.html">competitor rate monitoring case study</a>; this post is about what the job actually consisted of, because the same pattern shows up in every manual report I have replaced.</p>
             </div>
 
             <div class="glass-card">
-                <h2>The setup, briefly</h2>
-                <p>The conditions are what make the result interpretable, so, briefly:</p>
-                <ul>
-                    <li>The underlying tracking was fixed first. The site's tracking plugin was repaired and verified with a small card test transaction before any Ads configuration was touched, so the purchase event was known to fire with the right value.</li>
-                    <li>A real booking then arrived from a natural paid click. The payload carried a click ID, a valid session ID, and consent was granted. A clean conversion by every criterion except one: the import that would carry it to Google Ads did not exist yet.</li>
-                    <li>The legacy Google Ads purchase conversion action was deleted.</li>
-                    <li>The GA4 purchase key event was imported as a new Ads conversion action, after that booking had already happened.</li>
-                </ul>
-                <p>To state the variable plainly: the conversion occurred first, and the import was created afterwards. Everything else about the chain was healthy.</p>
+                <h2>Four problems wearing the same coat</h2>
+                <p>Four platforms, four completely different collection problems.</p>
+                <p><strong>The first</strong> rendered its rates server side, which is the easy case, but paginated its listings behind query parameters. Reading the first page returned about a fifth of its products. A collector that stopped there would have produced a plausible, confidently wrong top ten every single morning.</p>
+                <p><strong>The second</strong> rendered nothing useful in its page source. Rates arrived after load, and the full inventory sat behind a "Load more" button that had to be exhausted, not scrolled past. It also priced by deposit size, so a single query missed products at both ends of the range.</p>
+                <p><strong>The third</strong> published structured markup on some pages and a client-rendered table on others, and split its listings by account type in the URL. Two collection strategies for one site, plus a URL map.</p>
+                <p><strong>The fourth</strong> served different content to an automated client than it served a browser. Its own freshness timestamp was current, so this was not caching. It withheld a category of third-party rates that it republishes under licence.</p>
+                <p>The lesson is not that comparison sites are awkward. It is that "collect the data" is never one task. Each source needs to be tested against the question "did I get all of it?", and the source that looks simplest is often the one quietly hiding four fifths of its inventory.</p>
             </div>
 
             <div class="glass-card">
-                <h2>The result</h2>
-                <p>The booking appeared in Google Ads against the newly imported conversion action, at a value that matched the GA4 event value exactly. Google Ads backfilled a conversion into an import that did not exist when the conversion happened.</p>
-                <p>What that does and does not establish:</p>
-                <ul>
-                    <li>Observed once, on one account, with a click ID present, and with a short window between the conversion and the import.</li>
-                    <li>Not documented vendor behaviour, as far as I can find, and not a promise about how far back the reach extends.</li>
-                    <li>The lookback that matters is the conversion window on the action. Nothing in this test supports assuming an arbitrarily long one.</li>
-                </ul>
-                <p>Two readings of that list are available. The optimistic one: fixing the setup mid-flight did not cost the conversion in the gap. The cautious one: a single observation under favourable conditions is a reason to stop assuming the data is lost, not a reason to assume it is safe. Both readings point the same way on the actual decision, which is the useful part: neither supports waiting for a clean start date.</p>
+                <h2>The one you do not engineer around</h2>
+                <p>That fourth platform is the finding worth dwelling on. It would have been possible to make an automated client look more like a browser. I did not, and the reason matters more than the technique.</p>
+                <p>Those rates originate with a market data provider that licenses them commercially. The platform withholding them from automated clients is not a bug to be routed around; it is the licence being enforced. The right route to that data is a licence, so the report now says on its face which category of rates it does not include and why, instead of quietly under-reporting the market and letting the team believe they were seeing all of it.</p>
                 <div class="highlight-box">
-                    <p><strong>If you are staring at the import screen wondering whether the last fortnight is already lost:</strong> in the one case I can report, it was not. That is worth knowing, and it is not worth betting a quarter's reporting on. Sample size one, stated in the title on purpose.</p>
+                    <p><strong>A report that names its own gaps is more useful than one that hides them.</strong> The team knows exactly which slice of the market the automated view covers, and can source the rest the proper way. A cleverer scraper would have given them a number they could not defend.</p>
                 </div>
             </div>
 
             <div class="glass-card">
-                <h2>The trap worth more than the answer</h2>
-                <p>The same account held a second finding, and it is the one I would send to a colleague.</p>
-                <p>The conversions list included an action named as though it were the Ads purchase action. Opened up, it was nothing of the sort. It was a synthetic GA4 event: a page view where the path started with the thank-you page. It was not tied to purchase data at all. Anyone reading the account list would conclude purchase tracking existed. What existed was a thank-you page proxy. This was inherited configuration, the kind of thing that accretes in any account that has passed through a few hands, and it matters for three reasons:</p>
-                <ul>
-                    <li>It counts page views, not transactions. Refreshes, bookmarks, back-button revisits and direct hits to the confirmation URL all count as purchases.</li>
-                    <li>It carries no order value, so value-based bidding has nothing real underneath it. A target ROAS strategy pointed at it is steering on a number that means nothing.</li>
-                    <li>It looks correct in the conversions list, which is where most audits stop. The name says purchase, the column has numbers in it, on to the next thing.</li>
-                </ul>
-                <p>A proxy like this is rarely anyone's mistake in the moment. It is usually sediment: at some point somebody needed purchase numbers before a real ecommerce event existed, the thank-you URL was the quickest route to a number, and the workaround outlived whoever knew it was a workaround. That is exactly why opening each action beats reading its name.</p>
-                <p>The hygiene step that followed: the legacy contact action was moved from primary to secondary, leaving the imported GA4 purchase as the only primary conversion action. Primary is what bidding optimises to. Everything else belongs in secondary, where it still reports but no longer steers, so nothing is lost by demoting it. Two overlapping primary actions recording the same underlying event is how double counting starts, and double counting in the primary column is bidding on fiction.</p>
+                <h2>Normalisation is where the value is</h2>
+                <p>Once the data is in, the actual work starts. Four platforms meant four naming conventions for the same product. "1 Year", "12 months" and "Fixed 12 month" all had to land in the same table, along with every other term the team tracked, and a normalisation rule that misfiles one of them produces a ranked table with a hole in it that nobody notices.</p>
+                <p>Minimum deposit mattered just as much. A rate nobody can open without a large sum is not the best rate available to a typical saver, and a table that ranks it first is misleading. Capturing the minimum deposit per product and showing it alongside the rate turned a list of numbers into something the team could actually price against.</p>
+                <p>Then provenance. Every ranked figure carries its bank, its source platform, the term exactly as that platform worded it, and its minimum deposit. Around 460 products a run across twelve source URLs, each one traceable. When a number looks wrong, it takes seconds to see where it came from and what the platform called it, instead of a conversation about who typed what.</p>
+                <p>The output format was not redesigned. The team already read ten tables in a fixed order, and the automated version is the same ten tables in the same order, with per-platform breakdowns alongside the pooled view. A report that arrives looking like the one it replaces gets trusted on the second morning.</p>
             </div>
 
             <div class="glass-card">
-                <h2>What to check if you are doing this</h2>
-                <ol>
-                    <li>Verify the underlying event fires with the right value before touching any Ads action. Reproduce it yourself with a real transaction, not a debug preview.</li>
-                    <li>Check whether an existing conversion action is a real event or a URL proxy. Open it, do not read its name.</li>
-                    <li>Check whether a native Ads tag and an imported GA4 event are both live for the same action. That is a dedupe problem waiting to happen.</li>
-                    <li>Confirm the value in Ads matches the value in GA4 to the penny, not approximately. Approximate agreement is how value bugs hide.</li>
-                    <li>Expect the new action's reporting history to start empty even if individual conversions backfill, and do not read that gap as a failure.</li>
-                    <li>Decide which action is primary before you switch bidding strategies, not after.</li>
-                </ol>
+                <h2>A report has to report on itself</h2>
+                <p>Any automated report that quietly serves stale figures is worse than no report at all, because people act on it without checking. A manual process fails visibly: the email does not arrive, someone asks. An automated one that breaks tends to keep sending yesterday's numbers with today's date, and it can do that for weeks.</p>
+                <p>So the system reports on itself. Every run writes a health block naming each source and how many products it returned. A platform that silently starts returning nothing, because it redesigned a page or changed a URL, is visible in the next email rather than three weeks later when a rate looks suspiciously static.</p>
+                <p>The send step also checks the collection date before it does anything. If the figures are not from that morning, the subject line says so, and the email opens with a warning naming the date it actually holds. Nobody has to remember to check freshness, because the report refuses to pretend.</p>
+                <p>Reliability was engineered rather than assumed. The collector is triggered from two independent schedulers, retries three times within each run, and finishes hours before the report is due, so a single failure has several chances to correct itself before anyone sees it. The team can also refresh and resend on demand from a phone, which matters on the mornings a competitor moves early.</p>
             </div>
 
             <div class="glass-card">
-                <h2>Fix it now, not at the month boundary</h2>
-                <p>The clean start date is a comfort, not a strategy. The reason to fix a stale conversion setup now rather than waiting for a tidy month boundary is that the data in the gap may not be lost, as this one case shows, while the cost of running bidding against a proxy for another fortnight is certain. One of those risks is speculative. The other is on the invoice. Verifying this kind of chain end to end, from the event on the site to the value in the Ads column, is the core of my <a href="../index.html#services">tracking and measurement work</a>.</p>
+                <h2>What this does not do</h2>
+                <p>It does not get the team data they are not entitled to; the licensed rates are named as a gap, not filled in. It does not decide what to do when a rival moves; it gives the team the market at nine instead of eleven, with figures they can trace. And it is not immune to change: when a platform redesigns, that source's collector will return less, and the health block will say so the same morning. That is the design working, not failing. The fix is a small one-off job on one source, which is the trade you make for never typing the tables again.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Where to start with your own</h2>
+                <p>If someone on your team builds a report by hand at a fixed time, the questions to ask before automating it are not about tooling. Write down every source and check whether the page you read is the whole inventory or the first page of it. Note every place two sources name the same thing differently. Decide which fields decide whether a figure is real for you, the way minimum deposit did here. Then insist the automated version can tell you, in its subject line, when it should not be trusted.</p>
+                <p>The scraping is a few hours. The rest is the job. More on how I scope this work on the <a href="../reporting-automation.html">marketing data and reporting automation</a> page, and the same "one repeatable run instead of a manual routine" thinking applied to keyword research in <a href="keyword-planner-api.html">why I stopped using the Keyword Planner UI</a>.</p>
             </div>
         </section>
         </article>
 
         <section class="cta-section">
-            <h2>Inherited a conversion setup you do not trust?</h2>
-            <p>I audit conversion actions against what they actually record, rebuild the imports, and verify the chain with a real transaction before bidding touches it. One-off project, written handover, no retainer.</p>
+            <h2>Still building a report by hand every morning?</h2>
+            <p>I replace manual reporting with automated pipelines as a one-off project: your sources, your format, an audit trail on every figure and a report that says when it cannot be trusted. Documentation and code you own, no retainer. Based in Manchester, working with clients anywhere in the UK.</p>
             <a href="../index.html#contact" class="primary-cta">Get in Touch</a>
         </section>
 

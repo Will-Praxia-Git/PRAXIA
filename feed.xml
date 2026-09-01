@@ -3,10 +3,17 @@
   <channel>
     <title>Praxia Blog: Notes from the Accounts</title>
     <link>https://praxia.uk/blog/</link>
-    <description>Practical writing on PPC, tracking and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist.</description>
+    <description>Practical writing on PPC, conversion tracking, reporting automation and lead quality from a freelance Google Ads, Microsoft Ads and GA4 specialist based in Manchester.</description>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 22 Aug 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 09:00:00 GMT</lastBuildDate>
     <atom:link href="https://praxia.uk/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Automating a Daily Report: The Scraping Is the Easy Part</title>
+      <link>https://praxia.uk/blog/automating-daily-reports.html</link>
+      <guid>https://praxia.uk/blog/automating-daily-reports.html</guid>
+      <pubDate>Tue, 01 Sep 2026 09:00:00 GMT</pubDate>
+      <description>A product team typed ten ranked tables of competitor rates from four comparison platforms every morning. Automating it looked like one scraping job and was really four collection problems, a licence boundary to document rather than engineer around, a normalisation job where the value lived, and a report that has to say in its subject line when it is stale.</description>
+    </item>
     <item>
       <title>Proto-Plus, Not Protobuf: Four Errors That Eat a Morning of Google Ads API Work</title>
       <link>https://praxia.uk/blog/google-ads-python-proto-plus.html</link>
