@@ -8,7 +8,8 @@
 - Google Ads: builds, restructures, technical fixes, large-scale changes through the Google Ads API
 - Conversion tracking and measurement: GA4, Google Tag Manager, Consent Mode v2, server-side tagging, checkout and purchase tracking with real order values, custom conversions
 - Offline conversion pipelines: GCLID and MSCLKID capture into the CRM, import back to Google and Microsoft
-- Marketing data and reporting automation: scheduled collection from ad platforms, GA4, CRMs and public web sources, normalised into the report a team already reads, with per-source health checks and stale-data warnings; competitor rate and price monitoring
+- Marketing data and reporting automation: scheduled collection from ad platforms, GA4, CRMs and public web sources, normalised into the report a team already reads, with per-source health checks and stale-data warnings
+- Competitor price monitoring and tracking: daily collection from comparison sites and public pages, normalised and ranked, built once with no subscription
 - PPC audits and diagnostics with a prioritised written report
 - Conversion-focused landing page builds
 
@@ -16,6 +17,7 @@
 
 - [Home](https://praxia.uk/): services, packages and prices, FAQ, contact
 - [Marketing Data & Reporting Automation](https://praxia.uk/reporting-automation.html): what gets automated, how every build is done, what it does not do
+- [Competitor Price Monitoring](https://praxia.uk/competitor-price-monitoring.html): daily competitor price tracking built for your market, no subscription, when a tool is the better buy
 - [Case study: automating a daily competitor rate report](https://praxia.uk/competitor-rate-monitoring.html): UK savings provider, four comparison platforms, ten ranked tables emailed daily
 - [Case study: checkout conversion tracking rebuild](https://praxia.uk/checkout-tracking.html): airport parking operator, 17,359 recorded conversions against roughly 4,500 real bookings
 - [Case study: Microsoft Ads for B2B](https://praxia.uk/msads.html): HVAC company, 5x ROAS in a quarter
