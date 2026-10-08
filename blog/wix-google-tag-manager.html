@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MMVS32QS');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Wix Google Tag Manager Setup for Google Ads Conversion Tracking | Praxia</title>
+    <meta name="description" content="How to add Google Tag Manager to Wix and track Google Ads conversions properly: Wix's dataLayer events, booking values, consent, and GCLID capture without Velo.">
+    <meta name="keywords" content="wix google tag manager, google tag manager wix, add google tag manager to wix, wix google ads conversion tracking, install google tag manager on wix, wix gtm, wix google tag, google ads conversion tracking wix, google ads conversion tracking not working, gclid tracking, google ads gclid, gclid parameter, gclid conversion tracking">
+    <meta name="author" content="Praxia">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#0F0620">
+    <link rel="canonical" href="https://praxia.uk/blog/wix-google-tag-manager.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Praxia">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:url" content="https://praxia.uk/blog/wix-google-tag-manager.html">
+    <meta property="og:title" content="How to Add Google Tag Manager to Wix for Google Ads Conversion Tracking">
+    <meta property="og:description" content="The setup in order, and the parts that go wrong: duplicate Google tags, thank-you page triggers, eventModel parameters, booking values, consent defaults and GCLID capture without Velo.">
+    <meta property="og:image" content="https://praxia.uk/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-10-08">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Add Google Tag Manager to Wix for Google Ads Conversion Tracking">
+    <meta name="twitter:description" content="The setup in order, and the parts that go wrong: duplicate Google tags, thank-you page triggers, eventModel parameters, booking values, consent defaults and GCLID capture without Velo.">
+    <meta name="twitter:image" content="https://praxia.uk/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["BlogPosting", "TechArticle"],
+          "@id": "https://praxia.uk/blog/wix-google-tag-manager.html#post",
+          "url": "https://praxia.uk/blog/wix-google-tag-manager.html",
+          "mainEntityOfPage": "https://praxia.uk/blog/wix-google-tag-manager.html",
+          "headline": "How to Add Google Tag Manager to Wix for Google Ads Conversion Tracking",
+          "description": "How to add Google Tag Manager to Wix and track Google Ads conversions properly: Wix's dataLayer events, booking values, consent, and GCLID capture without Velo.",
+          "inLanguage": "en-GB",
+          "datePublished": "2026-10-08",
+          "dateModified": "2026-10-08",
+          "image": "https://praxia.uk/og-image.png",
+          "author": { "@type": "Organization", "name": "Praxia", "url": "https://praxia.uk/" },
+          "publisher": { "@id": "https://praxia.uk/#business" },
+          "isPartOf": { "@id": "https://praxia.uk/blog/#blog" },
+          "proficiencyLevel": "Expert",
+          "keywords": "Wix Google Tag Manager, Wix GTM, Wix Google Ads conversion tracking, eventModel, GCLID, consent mode, GA4"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://praxia.uk/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://praxia.uk/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "Google Tag Manager on Wix for Google Ads Conversion Tracking", "item": "https://praxia.uk/blog/wix-google-tag-manager.html" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can you add Google Tag Manager to Wix on the free plan?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. Wix's Google Tag Manager integration requires a Premium plan and a connected domain." }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does GTM only fire once on Wix?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Wix sites behave as single-page applications, so the All Pages trigger fires on the first page load only. Use Wix's own page view event for subsequent pages." }
+            },
+            {
+              "@type": "Question",
+              "name": "Where is the purchase value in Wix's dataLayer?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Under eventModel, for example eventModel.value and eventModel.transaction_id, because Wix pushes its events gtag-style." }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the Wix purchase event report the deposit or the full price?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The full order total. If you take a deposit online, the event still reports the full booking value." }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you capture the GCLID on Wix without Velo?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Store it in a first-party cookie with a GTM Custom HTML tag, then send it to a Google Sheet when a conversion completes. Google Ads can import offline conversions from that Sheet on a schedule." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+    <link rel="alternate" type="application/rss+xml" title="Praxia Blog" href="https://praxia.uk/feed.xml">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            letter-spacing: 0.02em;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            margin: 0;
+            color: #FFFFFF;
+        }
+
+        .lava-lamp {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(180deg, #2D1B69 0%, #0F0620 100%);
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .blob1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 0, 150, 0.8) 0%, rgba(255, 0, 150, 0) 70%);
+            top: -200px;
+            left: -200px;
+            animation-duration: 25s;
+        }
+
+        .blob2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(150, 0, 255, 0.8) 0%, rgba(150, 0, 255, 0) 70%);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 5s;
+            animation-duration: 30s;
+        }
+
+        .blob3 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 0, 100, 0.8) 0%, rgba(255, 0, 100, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: 10s;
+            animation-duration: 35s;
+        }
+
+        .blob4 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(200, 0, 255, 0.8) 0%, rgba(200, 0, 255, 0) 70%);
+            bottom: 20%;
+            left: 10%;
+            animation-delay: 15s;
+            animation-duration: 28s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(100px, -100px) scale(1.1); }
+            50% { transform: translate(-100px, 100px) scale(0.9); }
+            75% { transform: translate(50px, -50px) scale(1.05); }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            padding: 0 40px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-size: 20px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover { color: #FFFFFF; }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #FFFFFF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after { width: 100%; }
+
+        .nav-cta {
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            padding: 10px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 20px;
+            z-index: 99;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+
+        .mobile-menu .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .mobile-menu .nav-link {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        /* Article */
+        .post-header {
+            padding: 140px 40px 50px;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .post-header h1 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
+            line-height: 1.25;
+        }
+
+        .post-header h1 strong { font-weight: 600; }
+
+        .post-header .post-meta {
+            font-size: 13px;
+            letter-spacing: 0.05em;
+            color: rgba(255, 255, 255, 0.55);
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(255, 100, 200, 0.2);
+            border: 1px solid rgba(255, 100, 200, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            margin: 0 4px 8px;
+        }
+
+        .post-body {
+            padding: 0 40px 60px;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 32px;
+        }
+
+        .glass-card h2 {
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: rgba(255, 100, 200, 0.9);
+        }
+
+        .glass-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 24px 0 10px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .glass-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .glass-card a {
+            color: rgba(255, 140, 210, 0.95);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .glass-card a:hover { color: #FFFFFF; }
+
+        .glass-card ul,
+        .glass-card ol {
+            padding-left: 20px;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .glass-card li {
+            margin-bottom: 8px;
+        }
+
+        .glass-card code {
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 6px;
+        }
+
+        .glass-card pre {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            margin: 16px 0;
+            line-height: 1.55;
+        }
+
+        .glass-card pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight-box {
+            background: rgba(255, 100, 200, 0.1);
+            border-left: 3px solid rgba(255, 100, 200, 0.6);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover { color: #FFFFFF; }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 28px;
+            font-size: 16px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .primary-cta {
+            background: rgba(255, 255, 255, 0.9);
+            color: #0F0620;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .primary-cta:hover {
+            background: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            padding: 30px 40px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .navbar-nav { display: none; }
+            .mobile-toggle { display: block; }
+            .mobile-menu.active { display: block; }
+
+            .post-header {
+                padding: 120px 20px 36px;
+            }
+
+            .post-header h1 { font-size: 26px; }
+
+            .post-body {
+                padding: 0 20px 40px;
+            }
+
+            .glass-card {
+                padding: 28px 22px;
+            }
+
+            .blob1 { width: 400px; height: 400px; }
+            .blob2 { width: 350px; height: 350px; }
+            .blob3 { width: 300px; height: 300px; }
+            .blob4 { width: 250px; height: 250px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .blob { animation: none; }
+            *, *::before, *::after { transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMVS32QS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <div class="lava-lamp">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+        <div class="blob blob4"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="navbar-brand">PRAXIA</a>
+            <ul class="navbar-nav">
+                <li><a href="../index.html#services" class="nav-link">Services</a></li>
+                <li><a href="../index.html#work" class="nav-link">Work</a></li>
+                <li><a href="../index.html#packages" class="nav-link">Packages</a></li>
+                <li><a href="../index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="../reporting-automation.html" class="nav-link">Reporting</a></li>
+                <li><a href="index.html" class="nav-link">Blog</a></li>
+                <li><a href="../index.html#contact" class="nav-cta">Get in Touch</a></li>
+            </ul>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Open menu">☰</button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="navbar-nav">
+            <li><a href="../index.html#services" class="nav-link" onclick="toggleMobileMenu()">Services</a></li>
+            <li><a href="../index.html#work" class="nav-link" onclick="toggleMobileMenu()">Work</a></li>
+            <li><a href="../index.html#packages" class="nav-link" onclick="toggleMobileMenu()">Packages</a></li>
+            <li><a href="../index.html#faq" class="nav-link" onclick="toggleMobileMenu()">FAQ</a></li>
+            <li><a href="../reporting-automation.html" class="nav-link" onclick="toggleMobileMenu()">Reporting</a></li>
+            <li><a href="index.html" class="nav-link" onclick="toggleMobileMenu()">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-cta" onclick="toggleMobileMenu()">Get in Touch</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <article>
+        <section class="post-header">
+            <h1>How to Add Google Tag Manager to Wix <strong>for Google Ads Conversion Tracking</strong></h1>
+            <p class="post-meta">8 October 2026 · 8 minute read · by Praxia</p>
+            <div class="tags">
+                <span class="tag">Wix</span>
+                <span class="tag">Google Tag Manager</span>
+                <span class="tag">Conversion tracking</span>
+                <span class="tag">GCLID</span>
+            </div>
+        </section>
+
+        <section class="post-body">
+            <a class="back-to-blog" href="index.html">&larr; All posts</a>
+
+            <div class="glass-card">
+                <h2>The short answer</h2>
+                <div class="highlight-box">
+                    <p><strong>To add Google Tag Manager to Wix, go to Marketing Integrations in the Wix dashboard, choose Google Tag Manager and enter your container ID. This needs a Premium plan and a connected domain. To track Google Ads conversions properly, build them from the events Wix already pushes into the dataLayer rather than from thank-you page URLs, and check what Google tags Wix is already loading before you add anything, or you will double count.</strong></p>
+                </div>
+                <p>This guide covers the setup in order, and the problems that came up on a recent Wix Studio build for a service business taking bookings and payments online.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>How do you add Google Tag Manager to Wix?</h2>
+                <ol>
+                    <li>In the Wix dashboard, open <strong>Marketing Integrations</strong>.</li>
+                    <li>Choose <strong>Google Tag Manager</strong> and add your container ID (it starts with <code>GTM-</code>).</li>
+                    <li>Save, then open GTM's Preview mode on the live site and confirm the container loads on every page.</li>
+                </ol>
+                <p>Wix requires a Premium plan and a connected domain for this integration. There is no workaround on the free plan.</p>
+                <p>Wix sites behave as single-page applications, so GTM's standard All Pages trigger fires once, on the first page of a visit, and not again as the visitor moves around. Wix's own setup guide is blunt about it: do not use the All Pages trigger. Wix pushes its own page view event into the dataLayer on each page change, so the page view tag goes on a Custom Event trigger matching that event instead, and <code>send_page_view</code> is set to <code>false</code> in the GA4 configuration so the tag does not also fire on load. Wix's guide names the event <code>Pageview</code>; confirm the exact name in GTM Preview rather than trusting it, because the name is the whole trigger.</p>
+                <p>Whichever way you set it up, confirm in GA4 DebugView that each page change sends exactly one <code>page_view</code>.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What is Wix already loading?</h2>
+                <p>Before building anything in GTM, open Google Tag Assistant on the live site and list every tag ID that loads. Wix can load Google tags through its own Marketing Integrations, and a Google Ads or GA4 connection added by a previous agency or an earlier setup will keep firing alongside anything you build in GTM. That is a common cause of doubled page views and conversions on Wix.</p>
+                <p>On the build this post is based on:</p>
+                <ul>
+                    <li>There was no GTM container, but a Google tag was loading through Wix with a Google Ads destination and a GA4 destination attached.</li>
+                    <li>The tag appeared in the Google Ads account's Data Manager but was read-only, because it was administered from the linked GA4 property.</li>
+                    <li>Nobody could find that GA4 property.</li>
+                </ul>
+                <p>Rather than chase access to a property no one could locate, I created a fresh GA4 property and built the tracking in GTM. If you are in the same position, do the same.</p>
+                <div class="highlight-box">
+                    <p>An analytics property you cannot administer is not something to build on.</p>
+                </div>
+            </div>
+
+            <div class="glass-card">
+                <h2>Which events should Wix conversions be built on?</h2>
+                <p>The usual way to track a booking is a trigger on the thank-you page URL. On Wix this goes wrong in a specific way. On this site, paid bookings landed on <code>/thank-you-page/</code> followed by an order ID, while free consultation bookings landed on plain <code>/thank-you-page/</code>. A "URL contains thank-you" rule counts both as the same conversion and cannot tell a paid booking from a free one.</p>
+                <p>Wix pushes its own events into the dataLayer, and these are more reliable. On this build, a completed booking produced two events at the same moment:</p>
+                <ul>
+                    <li><code>purchase</code>, carrying the order value, currency, a transaction ID and an items array with the service name and service ID</li>
+                    <li><code>schedule</code>, carrying the service name and a booking ID</li>
+                </ul>
+                <p>Free bookings fired <code>schedule</code> with no value attached. A trigger on <code>purchase</code> handled paid bookings, and a second trigger on <code>schedule</code>, filtered to the free consultation's service name, sent those to GA4 as <code>generate_lead</code>.</p>
+                <p>Wix does not publish a full list of the events it sends. Before building anything, open GTM Preview, complete a real booking or form submission, and look at what actually arrives.</p>
+
+                <h3>The parameters sit under eventModel</h3>
+                <p>Wix's events arrive gtag-style, so GTM exposes their parameters under <code>eventModel</code> rather than at the top level of the dataLayer. Your Data Layer Variables need paths like these:</p>
+                <pre><code>eventModel.value
+eventModel.currency
+eventModel.transaction_id
+eventModel.items</code></pre>
+                <p>The items array also uses Wix's key names (<code>id</code>, <code>name</code>, <code>category</code>) rather than GA4's (<code>item_id</code>, <code>item_name</code>, <code>item_category</code>). A Custom JavaScript variable remaps them:</p>
+                <pre><code>function() {
+  var items = {{DLV - eventModel.items}} || [];
+  return items.map(function(i) {
+    return {
+      item_id: i.id,
+      item_name: i.name,
+      item_category: i.category,
+      price: i.price,
+      quantity: i.quantity
+    };
+  });
+}</code></pre>
+            </div>
+
+            <div class="glass-card">
+                <h2>Why is Google Ads conversion tracking not working on Wix?</h2>
+                <p>These are the causes worth checking first:</p>
+                <ol>
+                    <li><strong>A second Google tag.</strong> Wix's own integration and GTM are both sending the same events. Check Tag Assistant for duplicate IDs.</li>
+                    <li><strong>URL-based triggers.</strong> Thank-you page rules that match more than one type of conversion, or that fire again on refresh.</li>
+                    <li><strong>Missing parameters.</strong> On this build, the first real purchase reached GA4 with no value, no currency and no transaction ID. The dataLayer push was intact. The GA4 event tag's Event Parameters section was empty. An event showing in GA4 Realtime does not mean it is complete: open it and confirm every parameter is present before importing it into Google Ads.</li>
+                    <li><strong>Page views firing once.</strong> The single-page application issue described above.</li>
+                    <li><strong>Consent defaults.</strong> Covered below.</li>
+                </ol>
+                <p>A conversion that arrives without a value is the quieter version of this problem, and it survives for months because the count looks right. That is the subject of <a href="conversion-count-lies.html">why a conversion count is the number least likely to be questioned</a>.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What conversion value should a Wix booking report?</h2>
+                <p>Wix's <code>purchase</code> value is the order total, not the money collected. For a service that takes a deposit online and the balance in person, a £250 booking with a £25 deposit reports £250.</p>
+                <p>That is often the right number for Google Ads, because the booking is worth the full price if the customer turns up. Two things need checking first:</p>
+                <ul>
+                    <li><strong>Can a booking complete without payment?</strong> On this site, a manual payment option let a full booking through with no card details and no money taken, and <code>purchase</code> still fired with the full value.</li>
+                    <li><strong>Are cancelled or missed bookings ever removed?</strong> If not, the conversion value is committed bookings, not revenue.</li>
+                </ul>
+                <p>If neither is controlled, report the value as bookings made and say so in any report built on it. The gap between what a checkout records and what the business actually banked is the whole story of <a href="../checkout-tracking.html">this checkout tracking rebuild</a>.</p>
+                <p>One thing that did not need fixing: card payments through Wix Payments, including the 3D Secure step, stayed inside the page rather than redirecting to a payment provider. The session was not broken, and nothing needed adding to GA4's unwanted referrals. Confirm this on your own setup, but it is one less job than some booking platforms create.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Does Google consent mode work on Wix?</h2>
+                <p>Google's documentation states that once you have enabled the Wix consent banner, consent mode is enabled automatically. Check it anyway. Open the site in Tag Assistant, before interacting with the banner, and look at the consent <code>default</code> command.</p>
+                <p>On this build, the default set all seven consent types to granted before any interaction, while the cookie banner itself recorded only one category as accepted. The two systems disagreed, so consent mode was having no effect. That is a compliance issue for the site owner as well as a measurement one, and it should be raised with them in writing even if fixing it is outside your scope.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>What is a GCLID, and how do you capture it on Wix without Velo?</h2>
+                <p>The GCLID (Google click ID) is a parameter Google Ads adds to your landing page URL when someone clicks an ad, for example <code>?gclid=Cj0KCQ...</code>. Storing it against each lead lets you send conversions that happen later, by phone or in person, back to Google Ads as offline conversions.</p>
+                <p>The usual method is a hidden form field. On Wix, getting a value into a hidden field reliably means using Velo, Wix's development platform, which is a lot of risk to add to a live site for one field.</p>
+                <p>A lighter approach that works:</p>
+                <ol>
+                    <li>A GTM Custom HTML tag reads the <code>gclid</code> parameter on landing and stores it in a first-party cookie. Fire it only when ad storage consent is granted, like any other advertising cookie.</li>
+                    <li>When a booking or enquiry completes, a second tag sends the GCLID, with the booking ID, service and value, to a Google Sheet through a small Google Apps Script web app.</li>
+                    <li>Google Ads imports offline conversions from that Sheet on a schedule.</li>
+                </ol>
+                <p>The Sheet doubles as the attribution record and the import file. On the build it was tested on, the GCLID persisted from the landing page to the confirmation page and logged correctly for both paid and free bookings.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Can you use enhanced conversions on Wix?</h2>
+                <p>Yes, but check which customer details are actually on the page when the conversion fires. On this build, the final booking step collected name and phone number but had no email field, so phone was the only identifier available at that point.</p>
+                <p>Wix form field IDs also include a suffix that changes, so select fields by their <code>aria-label</code> rather than their ID if you are reading values from the page. Normalisation matters as much as selection here, which is one of the recurring themes in <a href="gtm-consultant.html">what a GTM consultant actually fixes</a>.</p>
+            </div>
+
+            <div class="glass-card">
+                <h2>Wix Google Tag Manager checklist</h2>
+                <ul>
+                    <li>List every tag Wix already loads, using Tag Assistant</li>
+                    <li>Replace any Google tag you cannot administer</li>
+                    <li>Add GTM through Marketing Integrations (Premium plan and connected domain)</li>
+                    <li>Send page views from Wix's page view event and confirm one per page change</li>
+                    <li>Build conversions from Wix's dataLayer events, not thank-you page URLs</li>
+                    <li>Point Data Layer Variables at <code>eventModel.*</code></li>
+                    <li>Confirm value, currency and transaction ID in GA4 DebugView</li>
+                    <li>Agree with the business what the conversion value represents</li>
+                    <li>Check the consent default in Tag Assistant</li>
+                    <li>Store the GCLID and log it for offline conversion import</li>
+                </ul>
+            </div>
+
+            <div class="glass-card">
+                <h2>Frequently asked questions</h2>
+
+                <h3>Can you add Google Tag Manager to Wix on the free plan?</h3>
+                <p>No. Wix's Google Tag Manager integration requires a Premium plan and a connected domain.</p>
+
+                <h3>Why does GTM only fire once on Wix?</h3>
+                <p>Wix sites behave as single-page applications, so the All Pages trigger fires on the first page load only. Use Wix's own page view event for subsequent pages.</p>
+
+                <h3>Where is the purchase value in Wix's dataLayer?</h3>
+                <p>Under <code>eventModel</code>, for example <code>eventModel.value</code> and <code>eventModel.transaction_id</code>, because Wix pushes its events gtag-style.</p>
+
+                <h3>Does the Wix purchase event report the deposit or the full price?</h3>
+                <p>The full order total. If you take a deposit online, the event still reports the full booking value.</p>
+
+                <h3>How do you capture the GCLID on Wix without Velo?</h3>
+                <p>Store it in a first-party cookie with a GTM Custom HTML tag, then send it to a Google Sheet when a conversion completes. Google Ads can import offline conversions from that Sheet on a schedule.</p>
+            </div>
+        </section>
+        </article>
+
+        <section class="cta-section">
+            <h2>Bookings and Google Ads conversions not matching?</h2>
+            <p>I build and fix conversion tracking on Wix, WordPress and custom platforms: the right events, real values, consent checked, GCLID captured and offline conversions flowing back to Google Ads. Verified against live transactions before bidding touches it. One-off project, written handover, no retainer.</p>
+            <a href="../index.html#contact" class="primary-cta">Get in Touch</a>
+        </section>
+
+        <footer class="footer">
+            <p>© 2026 Praxia. Practical digital solutions.</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            if (!mobileMenu.contains(event.target) && !mobileToggle.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
